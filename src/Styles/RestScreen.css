@@ -1,0 +1,76 @@
+.blob{
+    position: absolute;
+    left: 22.22%;
+    right: 22.22%;
+    top: 42.45%;
+    bottom: 32.99%;
+}
+
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 200px 1fr 200px;
+    background-color: #F5F6FA;
+}
+
+.grid-item {
+    padding: 30px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.footer{
+    grid-row-start: 3;
+    align-items: center;
+}
+
+
+.touchToStart{
+    position:absolute;
+    left: 371px;
+    top: 1000px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 68px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #FFFFFF;
+
+}
+
+.passCard{
+    position: absolute;
+    width: 649px;
+    height: 204px;
+    left: 215px;
+    top: 1169px;
+
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 68px;
+    text-align: center;
+
+    color: #545454;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.passCardImage{
+    position: absolute;
+    width: 400px;
+    height: 383.27px;
+    left: 340px;
+    top: 624px;
+}
+

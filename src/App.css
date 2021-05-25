@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +38,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+#ls-dialog-title{
+  font-size: 39px !important;
 }

@@ -1,0 +1,37 @@
+.footerContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 80px;
+    padding-right: 20px;
+    height: 100%;
+}
+
+.amiKIOSKLogo{
+    position: relative;
+    padding-top: 100px;
+    width: 200px;
+    height: 74.07px;
+}
+
+.goBack{
+    position: relative;
+    height: 100%;
+    text-align: left;
+    color: #666565;
+
+}
+
+.goBackText{
+    position: relative;
+    font-size: 40px;
+    top:-30px;
+}
+
+.copyright{
+    position: relative;
+    padding-top: 160px;
+    font-size: 14px;
+    color: #000;
+    
+}

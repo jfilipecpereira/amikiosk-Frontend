@@ -1,0 +1,50 @@
+{
+
+  "toqueParaIniciar": "Touch to start",
+  "porFavorApresenteoSeuCartao": "Please swipe your transport card",
+  "bemVindo": "Welcome",
+  "recarregarTitulos": "Recharge Titles",
+  "consultarTitulos": "Consult Titles",
+  "validoAte": "Valid until",
+
+  "escolhaOTitulo": "Choose title",
+
+  "taifaAdicionadaCarrinho": "Title added to cart",
+  "TarifaJaExistenteCarrinho": "This title is already in cart",
+
+  "titulosAtivos": "Active titles",
+  "carrinho.titulo": "My cart",
+  "carrinho.checkoutButton": "Checkout",
+  "carrinho.precoTotal": "Total Price",
+
+  "dadosFaturacao": "Billing data",
+  "nome": "Name",
+  "nif": "VAT",
+  "nifExtenso": "VAT Number",
+  "introduzaNome": "Insert your name",
+  "introduzaNif": "Insert your VAT number",
+
+  "Confirmar":"Confirm",
+  "titulosAComprar": "Titles",
+  "totalAPagar": "Total",
+
+  "inserirMB": "Please insert your credit card",
+  "inserirPIN": "Please insert your PIN",
+  "autorizacaoEmCurso": "Payment in progress",
+
+  "aguarde": "Plase wait",
+  "operacaoEmCurso": "Operation in progress",
+
+  "obrigadoPelaCompra": "Thanks for your purchasing",
+  "retireTicket": "Please remove your ticket",
+  "boaViagem": "Have a nice trip",
+
+
+  "mes": "month",
+  "Mes": "Month",
+  "Sair": "Exit",
+  "voltar": "back",
+  "Voltar": "Back",
+  "Seguinte": "Next",
+  "Cancelar": "Cancel"
+}

@@ -1,0 +1,50 @@
+{
+
+    "toqueParaIniciar": "Appuyez pour commencer",
+    "porFavorApresenteoSeuCartao": "Veuillez présenter la carte sur le lecteur",
+    "bemVindo": "Bienvenue",
+    "recarregarTitulos": "Recharger titres",
+    "consultarTitulos": "Consulter titres",
+    "validoAte": "Valable jusqu'au",
+
+    "escolhaOTitulo": "Choisissez le titre",
+
+    "taifaAdicionadaCarrinho": "Tarif ajouté au panier",
+    "TarifaJaExistenteCarrinho": "Vous avez déjà le tarif dans le panier",
+
+    "titulosAtivos": "Titres actifs",
+    "carrinho.titulo": "Mon panier",
+    "carrinho.checkoutButton": "Finaliser l'achat",
+    "carrinho.precoTotal": "Prix total",
+
+    "dadosFaturacao": "Données de facturation",
+    "nome": "Nom",
+    "nif": "RCS",
+    "nifExtenso": "Numéro d'identification fiscale",
+    "introduzaNome": "Insérer nom complet",
+    "introduzaNif": "Insérer RCS",
+
+    "Confirmar":"Confirmer",
+    "titulosAComprar": "Titres à acheter",
+    "totalAPagar": "Total à payer",
+
+    "inserirMB": "Insérer carte ATM",
+    "inserirPIN": "Insérer code PIN",
+    "autorizacaoEmCurso": "Autorisation de paiement en cours",
+
+    "aguarde": "Patientez,svp",
+    "operacaoEmCurso": "Opération en cours",
+
+    "obrigadoPelaCompra": "Merci de votre achat",
+    "retireTicket": "Retirer le ticket,svp",
+    "boaViagem": "Bon voyage",
+
+
+    "mes": "mois",
+    "Mes": "Mois",
+    "Sair": "Sortir",
+    "voltar": "retour",
+    "Voltar": "Retour",
+    "Seguinte": "Suivant",
+    "Cancelar": "Quitter"
+  }

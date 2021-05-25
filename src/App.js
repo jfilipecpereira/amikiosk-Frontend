@@ -1,24 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
+import { CartProvider } from './Contexts/CartContext';
+import { ClientProvider } from './Contexts/ClientContext';
+import { WeatherProvider } from './Contexts/WeatherContext';
+import React, {useContext, Suspense, useEffect } from 'react';
+import RestScreen from './Components/Pages/RestScreen';
+import Main from './Components/Pages/Main';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ClientProvider>
+      <CartProvider>
+        <WeatherProvider>
+          <Suspense fallback="loading">
+            <Router>
+              <div className="App">
+                  <Switch>
+                  <Route path="/main">
+                    <Main/>
+                  </Route>
+                  <Route path="/checkout">
+                    {/*<Checkout/>*/}
+                  </Route>
+                  <Route path="/products">
+                    {/*<Products />*/}
+                  </Route>
+                  <Route path="/">
+                    <RestScreen/>
+                  </Route>
+                </Switch>
+              </div>
+            </Router>
+          </Suspense>
+        </WeatherProvider>
+      </CartProvider>
+    </ClientProvider>
   );
 }
 

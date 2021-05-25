@@ -1,0 +1,55 @@
+.welcomeText{
+    position: relative;
+    text-align: left !important;
+    top: 90px;
+    left: 120px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 49px;
+    text-transform: capitalize;
+
+    color: #000000;
+}
+.cardImageContainer{
+    display: flex;
+    height: 30vh;
+    padding-top: 13vh;
+}
+.cardImage{
+    position: relative;
+    display: block;
+    margin:auto;
+    width: 750px;
+}
+
+.buttonsContainer{
+    display: flex;
+    height: 15vh;
+    flex-direction: column;
+}
+
+.ActionButton{
+    width: 750px;
+    height: 152px;
+    background: #FFF;
+    margin:auto;
+    display:table;
+}
+
+.buttonText{
+    font-family: Nunito;
+    font-weight: bolder;
+    font-size: 48px;
+    text-transform: capitalize;
+
+    display: table-cell;
+    vertical-align: middle;
+    color: #4F4B4B;
+}
+
+.icon{
+    padding-left: 30px;
+    color:red;
+}

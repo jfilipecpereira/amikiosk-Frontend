@@ -1,0 +1,50 @@
+{
+
+    "toqueParaIniciar": "Toque Para Iniciar",
+    "porFavorApresenteoSeuCartao": "Por favor, apresente o seu cartão no leitor",
+    "bemVindo": "Bem Vind@",
+    "recarregarTitulos": "Recarregar Títulos",
+    "consultarTitulos": "Consultar Títulos",
+    "validoAte": "Válido até",
+
+    "escolhaOTitulo": "Escolha o Título",
+
+    "taifaAdicionadaCarrinho": "Tarifa adicionada ao carrinho",
+    "TarifaJaExistenteCarrinho": "Já tem a tarifa adicionada no seu carrinho",
+
+    "titulosAtivos": "Títulos Ativos",
+    "carrinho.titulo": "O meu carrinho",
+    "carrinho.checkoutButton": "Finalizar Compra",
+    "carrinho.precoTotal": "Preço Total",
+
+    "dadosFaturacao": "Dados de Faturação",
+    "nome": "Nome",
+    "nif": "NIF",
+    "nifExtenso": "Número de Contribuinte",
+    "introduzaNome": "Introduza o seu nome completo",
+    "introduzaNif": "Introduza o seu NIF",
+
+    "Confirmar":"Confirmar",
+    "titulosAComprar": "Títulos a Comprar",
+    "totalAPagar": "Total a pagar",
+
+    "inserirMB": "Por favor, insira o cartão Multibanco",
+    "inserirPIN": "Insira o PIN",
+    "autorizacaoEmCurso": "Autorização de Pagamento em Curso",
+
+    "aguarde": "Por favor, aguarde",
+    "operacaoEmCurso": "Operação em curso",
+
+    "obrigadoPelaCompra": "Obrigado pela sua compra",
+    "retireTicket": "Por favor, retire o ticket",
+    "boaViagem": "Boa Viagem",
+
+
+    "mes": "mês",
+    "Mes": "Mês",
+    "Sair": "Sair",
+    "voltar": "voltar",
+    "Voltar": "Voltar",
+    "Seguinte": "Seguinte",
+    "Cancelar": "Cancelar"
+  }

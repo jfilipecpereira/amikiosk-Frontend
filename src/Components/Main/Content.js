@@ -18,6 +18,7 @@ export const Content = (props) => {
             <div className="cardImageContainer">
                 <img src={card} className="cardImage"/>
             </div>
+            t
             <div className="buttonContainer" style={{marginTop:'80px'}}>
                 <div className="ActionButton">
                     <FontAwesomeIcon icon={faEye} size="5x" className="ActionButton icon"/>

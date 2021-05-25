@@ -22,6 +22,58 @@ export const RestScreen = (props) => {
         passCard: 'none'
     });
 
+    const sampleData = {
+        "name": "Matilde Rosendo Pereira",
+        "number": 23113,
+        "cardNumber": 1955788548,
+        "address": "Urb Quinta das Varzeas, Lt 3, 2ºDrt.",
+        "city": "",
+        "postalC": "6200",
+        "status": "200",
+        "lastTransation": 1621932671,
+        "contractsToReload": [
+            {
+                "id": 69,
+                "name": "4_18 MAIOR Esc25",
+                "company": "Transdev Interior,  S.A.",
+                "companyId": 9,
+                "dateInit": "01/06/2021",
+                "dateEnd": "30/06/2021",
+                "origin": "Terminal 1",
+                "destination": "Terminal 1",
+                "trips": 0,
+                "lastSale": null,
+                "price": 29.2,
+                "cash": 0
+            },
+            {
+                "id": 69,
+                "name": "4_18 MAIOR Esc25",
+                "company": "Transdev Interior,  S.A.",
+                "companyId": 9,
+                "dateInit": "01/05/2021",
+                "dateEnd": "31/05/2021",
+                "origin": "Terminal 1",
+                "destination": "Terminal 1",
+                "trips": 0,
+                "lastSale": null,
+                "price": 29.2,
+                "cash": 0
+            }
+        ],
+        "contractsLoaded": [
+            {
+                "id": 69,
+                "name": "4_18 MAIOR Esc25",
+                "company": "Transdev Interior,  S.A.",
+                "companyId": 9,
+                "dateInit": "28/04/2021",
+                "dateEnd": "01/05/2021",
+                "dateSale": "28/04/2021"
+            }
+        ]
+    }
+
     const readCard = async () => {
         setState({
           //redirect: true
@@ -31,8 +83,12 @@ export const RestScreen = (props) => {
         await waitingCard();
       }
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     const waitingCard = async () => {
-        const response = await fetch('http://localhost:5000/api/ClientData');
+        /*const response = await fetch('http://localhost:5000/api/ClientData');
         const data = await response.json();
         if(data.status != 200){
             setState({cancel: true})
@@ -42,7 +98,10 @@ export const RestScreen = (props) => {
         }else{
             setClient({clientData: data});
             setState({...state, redirect: true})
-        }
+        }*/
+        await sleep(3000);
+        setClient({clientData: sampleData});
+        setState({...state, redirect: true})
       }
 
     if (state.redirect) {

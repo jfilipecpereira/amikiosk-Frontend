@@ -6,6 +6,7 @@ import { WeatherProvider } from './Contexts/WeatherContext';
 import React, {useContext, Suspense, useEffect } from 'react';
 import RestScreen from './Components/Pages/RestScreen';
 import Main from './Components/Pages/Main';
+import Products from './Components/Pages/Products';
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,7 +31,7 @@ function App() {
                     {/*<Checkout/>*/}
                   </Route>
                   <Route path="/products">
-                    {/*<Products />*/}
+                    <Products />
                   </Route>
                   <Route path="/">
                     <RestScreen/>

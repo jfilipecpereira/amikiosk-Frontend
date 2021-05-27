@@ -1,5 +1,5 @@
 // Import statements comes here.
-import React, { Component, useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Redirect } from 'react-router-dom'
 import '../../Styles/RestScreen.css'
 import LanguageSelector from '../Shared/LanguageSelector'
@@ -7,20 +7,28 @@ import LanguageSelector from '../Shared/LanguageSelector'
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
 
 import { ClientContext } from '../../Contexts/ClientContext'
+import { CartContext } from '../../Contexts/CartContext';
 
 import companyLogo from '../../images/transdevLogo.png';
 import amiKIOSK from '../../images/amiKIOSK.png';
 import passCard from '../../images/passCard.png'
 
 
+
 export const RestScreen = (props) => {
     const [client, setClient] = useContext(ClientContext);
+    const [cart, setCart] = useContext(CartContext);
 
     const [state, setState] = useState({
         redirect: false,
         touchDisplay: 'block',
         passCard: 'none'
     });
+
+    useEffect(() => {
+        setClient(null);
+        setCart([]);
+    }, []);
 
     const sampleData = {
         "name": "Matilde Rosendo Pereira",

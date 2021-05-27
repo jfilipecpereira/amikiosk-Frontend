@@ -1,28 +1,28 @@
-.cartHeader{
+.cartContainer{
+    padding-left: 160px;
+    padding-right: 160px;
+    padding-bottom: 30px;
     padding-top: 70px;
-    margin-bottom: 50px;
-    padding-left: 80px;
-    width: 100%;
-    font-size: 35px;
+}
+.cartHeader{
+    font-size: 45px;
+}
 
+.totalPrice{
+    font-size: 36px;
+}
+
+.price{
+    font-size: 36px;
+    font-weight: 900;
 }
 
 .CartPresentation{
-    float:left;
-    width:80%;
-}
-.CartClose{
-    float:right;
-    text-align: right;
-    padding-right: 80px;
+    font-size: 36px;
 }
 
 .CardBody{
-    margin-left: 80px;
-    margin-right: 80px;
-    
-    margin-top: 150px;
-    
+    margin-top: 100px;
 }
 
 .NomePasse{
@@ -34,16 +34,13 @@
 }
 
 .Item{
-    display: block;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 175px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     background-color: #F7F7F8;
     padding: 20px 50px 20px 50px;
-}
-
-.Item::after{
-    margin-bottom: 30px;
 }
 
 .ItemInfo{
@@ -53,31 +50,11 @@
 }
 .ItemDelete{
     /*width: 20%;*/
-    float: right;
-    text-align: right;
     margin-top: 10px;
-    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
     line-height: 140px;
-}
-
-.price{
-    display: table-cell;
-    width: 100%;
-    text-align: right;
-    font-size: 30px;
-}
-
-.totalPrice{
-    margin-top: 50px;
-}
-
-.totalPrice .title{
-    font-size: 25px;
-    font-weight: 700;
-}
-
-.totalPrice .value{
-    font-size: 25px !important;
+    color:red;
 }
 
 .emptyCart{
@@ -86,40 +63,54 @@
 }
 
 .imgEmptyCart{
+    width: 300px;
+    color: red;
     margin-left: auto;
     margin-right: auto;
     display: block;
   
 }
 
-
-.Checkout{
-    left: 0px !important;
-    text-align: center;
-    position: fixed;
-    bottom: 130px;
+.emptyCartText{
     width: 100%;
-    height: 70px;
-    font-size: 25px;
+    text-align: center;
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    padding-top: 50px;
 }
 
-.CheckoutButton{
-    width: 50%;
-    height: 100%;
+.checkout{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 90px;
+    width: 100%;
+}
+
+.checkoutButton{
+    width: 100%;
+    height: 75px;
     font-size: 25px !important;
-    background-color: #2C98F0 !important;
+    background-color: red !important;
     color: white !important;
     letter-spacing: 2px !important;
+    text-decoration: none;
+}
+
+.exitButton{
+    width: 100%;
+    height: 75px;
+    font-size: 25px !important;
+    background-color: #C4C4C4 !important;
+    color: black !important;
+    letter-spacing: 2px !important;
+    text-decoration: none;
 }
 
 .cartIcon{
     margin-left: 70px;
-}
-
-.flagImage{
-    width: 100px;
-    height: 60px;
-    padding-top: 30px;
 }
 
 .numberItemsinCart{

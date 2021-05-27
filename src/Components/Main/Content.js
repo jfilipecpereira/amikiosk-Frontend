@@ -3,39 +3,42 @@ import React, {useContext, useState } from 'react';
 import '../../Styles/RestScreen.css'
 import '../../Styles/Client.css'
 import card from '../../images/card.png'
+import CardFlipping from './Card'
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import { ClientContext } from '../../Contexts/ClientContext'
+import { Redirect } from 'react-router';
 
 export const Content = (props) => {
     const [client, setClient] = useContext(ClientContext);
-    const [flipped, setFlipped] = useState(false);
+    const [isFlipped, setisFlipped] = useState(false);
+    const [redirectProducts, setredirectProducts] = useState(false);
     
 
-    const [age, setAge] = useState(19)
-    const handleClick = () => setFlipped(!flipped)
-
     const handleFlip = () => {
-        setFlipped(!flipped);
-
+        setisFlipped(!isFlipped);
     }
+
+    
 
     return(
         <>
-            <div className="welcomeText">Bem Vindo(a), Matilde {flipped.toString()}</div>
-            <div className={"cardImageContainer card-container" + (flipped ? " flipped" : "")}>
-                <img src={card} className="cardImage" />
+            {redirectProducts ?  <Redirect to='/products' />  : null}
+            <div className="welcomeText">Bem Vindo(a), Matilde</div>
+            <div className="cardImageContainer">
+                {/*<img src={card} className="cardImage" />*/}
+                <CardFlipping isFlipped={isFlipped} setisFlipped={setisFlipped}/>
             </div>
             <div className="buttonContainer" style={{marginTop:'80px'}}>
                 <div className="ActionButton">
                     <FontAwesomeIcon icon={faEye} size="5x" className="ActionButton icon"/>
-                    <span  className="buttonText" onClick={handleFlip}>Consultar Dados</span>
+                    <span  className="buttonText" onClick={handleFlip}>{isFlipped ? "Ver Cartão" : "Consultar Dados" }</span>
                 </div>
 
-                <div className="ActionButton" style={{marginTop:'80px'}}>
+                <div className="ActionButton" style={{marginTop:'80px'}} onClick={() => setredirectProducts(true)}>
                     <FontAwesomeIcon icon={faPlus} size="5x" className="ActionButton icon"/>
                     <span className="buttonText">Recarregar Título</span>
                 </div>

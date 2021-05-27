@@ -3,11 +3,6 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faShoppingCart, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { CartContext} from '../../Contexts/CartContext'
@@ -17,17 +12,15 @@ import { useTranslation } from "react-i18next";
 
 import '../../Styles/ShoppingCart.css'
 import '../../images/shoppingCart.svg'
-import emptyCartImage from '../../images/emptyCart.png'; // Tell webpack this JS file uses this image
+import emptyCartImage from '../../images/emptyCart.svg'; // Tell webpack this JS file uses this image
 import cartIcon from '../../images/shoppingCart.svg'; // Tell webpack this JS file uses this image
 
-const useStyles = makeStyles({
-  list: {
-    width: 450,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
+const useStyles = makeStyles(theme => ({
+  drawerPaper: {
+    width: 240,
+    height: 600
+  }
+}));
 
 
 export default function ShoppingCart() {
@@ -35,7 +28,9 @@ export default function ShoppingCart() {
   const { t, i18n } = useTranslation()
 
   const [cart, setCart] = useContext(CartContext);
+
   const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+
 
 
   const classes = useStyles();
@@ -71,14 +66,10 @@ export default function ShoppingCart() {
       role="presentation"
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      <div className="cartContainer">
         <div className="cartHeader">
-            <div className="CartPresentation">
-               {t('carrinho.titulo')}
-              { cart.length > 0 ? " ("+ cart.length +")" : <></>}
-            </div>
-            <div className="CartClose">
-                <FontAwesomeIcon icon={faTimes} onClick={toggleDrawer(anchor, false)}/>
-            </div>
+               Carrinho de Compras
+              { cart.length > 0 ? <> ({cart.length}) <br/> <span className="totalPrice">{t('Total')}:</span> <span className="price">{totalPrice.toFixed(2)} € </span></>: <></>}<br/>
         </div>
         <div className="CardBody">
           {
@@ -92,32 +83,32 @@ export default function ShoppingCart() {
                   <div className="ItemDelete">
                       <FontAwesomeIcon onClick={() => removeFromCart(item)} icon={faTrash} size="3x" />
                   </div>
-                  {/*<div className="price">{item.price}</div>*/}
                 </div>
                 
               ))
             }
             
             { cart.length === 0 ? 
-              <div className="emptyCart"><img src={emptyCartImage} className="imgEmptyCart"/></div>
+              <div className="emptyCart"><img src={emptyCartImage} className="imgEmptyCart"/><br/><span className="emptyCartText">Carrinho Vazio</span></div>
             : <></>}
 
-            <div className="Checkout">
+            <div className="checkout">
               { cart.length > 0 ? 
                   <>
-                    <div className="totalPrice">
-                      <div><span className="title">{t('carrinho.precoTotal')}:</span> <span className="value">{totalPrice.toFixed(2)} €</span></div>
-                    </div>
-                    <NavLink to="/checkout">
-                      <Button variant="contained" className="CheckoutButton">
-                        {t('carrinho.checkoutButton')}
+                    <NavLink to="/checkout" style={{width:'45%'}}>
+                      <Button variant="contained" className="checkoutButton">
+                        Finalizar
                       </Button>
-                    </NavLink> 
+                    </NavLink>
+                    <Button variant="contained" className="exitButton" style={{width:'45%'}} onClick={toggleDrawer(anchor, false)}>
+                      Sair
+                    </Button>
                   </>
                   : <></>}
                 
             </div>
         </div>
+      </div>
       
     </div>
   );
@@ -126,13 +117,13 @@ export default function ShoppingCart() {
     <div class="cartIcon">
         <React.Fragment key={'bottom'}>
             <img src={cartIcon} width="130" onClick={toggleDrawer('bottom', true)}/>
-            <span className="numberItemsinCart">{cart.length}</span>
+            <span className="numberItemsinCart" onClick={toggleDrawer('bottom', true)}>{cart.length}</span>
             <SwipeableDrawer
                 anchor={'bottom'}
                 open={state['bottom']}
                 onClose={toggleDrawer('bottom', false)}
                 onOpen={toggleDrawer('bottom', true)}
-                swipeAreaWidth="300"
+                swipeAreaWidth="500"
             >
                 {list('bottom')}
             </SwipeableDrawer>

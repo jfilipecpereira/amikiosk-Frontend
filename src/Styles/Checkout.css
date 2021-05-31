@@ -1,0 +1,25 @@
+.prevStep{
+    position:absolute;
+    bottom: 8vh;
+    left: 130px;
+    z-index: 1;
+    color: #666565;
+}
+
+.nextStep{
+    position:absolute;
+    bottom: 8vh;
+    right: 130px;
+    z-index: 1;
+    color: #666565;
+}
+
+.checkoutContainer{
+    padding-left:120px;
+    padding-right:120px;
+}
+
+.MuiTextField-root{
+    width: 100%;
+    padding-bottom: 50px !important;
+}

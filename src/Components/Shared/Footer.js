@@ -12,6 +12,8 @@ export const Footer = (props) => {
         redirect: false
     });
 
+    const [checkout, setCheckout] = useState(true);
+
 
     if(state.redirect && props.Page ){
         return <Redirect to={props.Page} />
@@ -20,9 +22,11 @@ export const Footer = (props) => {
     return(
 
         <div className="footerContent">
-            <div className="goBack" onClick={() =>setState({redirect: true})}>
-                <FontAwesomeIcon  size="8x" icon={faAngleLeft}/><span className="goBackText">{props.Text}</span>
-            </div>
+            {props.Text != undefined ? 
+                <div className="goBack" onClick={() =>setState({redirect: true})}>
+                    <FontAwesomeIcon  size="8x" icon={faAngleLeft}/><span className="goBackText">{props.Text}</span>
+                </div>
+            : <div className="goBack"> </div> }
             <span className="copyright">©2021 AMI-Tecnologias para Transportes. Todos os direitos reservados.</span>
             <img src={amiKIOSKLogo} className="amiKIOSKLogo"/>
         </div>

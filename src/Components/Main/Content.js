@@ -2,7 +2,6 @@
 import React, {useContext, useState } from 'react';
 import '../../Styles/RestScreen.css'
 import '../../Styles/Client.css'
-import card from '../../images/card.png'
 import CardFlipping from './Card'
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -29,13 +28,12 @@ export const Content = (props) => {
             {redirectProducts ?  <Redirect to='/products' />  : null}
             <div className="welcomeText">Bem Vindo(a), Matilde</div>
             <div className="cardImageContainer">
-                {/*<img src={card} className="cardImage" />*/}
                 <CardFlipping isFlipped={isFlipped} setisFlipped={setisFlipped}/>
             </div>
             <div className="buttonContainer" style={{marginTop:'80px'}}>
-                <div className="ActionButton">
+                <div className="ActionButton" onClick={handleFlip}>
                     <FontAwesomeIcon icon={faEye} size="5x" className="ActionButton icon"/>
-                    <span  className="buttonText" onClick={handleFlip}>{isFlipped ? "Ver Cartão" : "Consultar Dados" }</span>
+                    <span  className="buttonText">{isFlipped ? "Ver Cartão" : "Consultar Dados" }</span>
                 </div>
 
                 <div className="ActionButton" style={{marginTop:'80px'}} onClick={() => setredirectProducts(true)}>

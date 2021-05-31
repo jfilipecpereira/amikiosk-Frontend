@@ -1,6 +1,6 @@
 .blob{
     position: absolute;
-    left: 22.22%;
+    left: 27.22%;
     right: 22.22%;
     top: 42.45%;
     bottom: 32.99%;
@@ -34,8 +34,8 @@
 
 .touchToStart{
     position:absolute;
-    left: 371px;
-    top: 1000px;
+    left: 480px;
+    top: 1200px;
     font-family: Nunito;
     font-style: normal;
     font-weight: 900;
@@ -47,13 +47,14 @@
 
 }
 
-.passCard{
-    position: absolute;
-    width: 649px;
-    height: 204px;
-    left: 215px;
-    top: 1169px;
+#pass{
+    padding-top: 700px
+}
 
+.passCard{
+
+    height: 100%;
+    text-align: center;
     font-family: Nunito;
     font-style: normal;
     font-weight: 900;
@@ -67,10 +68,8 @@
 }
 
 .passCardImage{
-    position: absolute;
-    width: 400px;
-    height: 383.27px;
-    left: 340px;
-    top: 624px;
+
+width: 400px;
+height: 383.27px;
 }
 

@@ -5,13 +5,16 @@ import { ClientProvider } from './Contexts/ClientContext';
 import { WeatherProvider } from './Contexts/WeatherContext';
 import React, {useContext, Suspense, useEffect } from 'react';
 import RestScreen from './Components/Pages/RestScreen';
+import Checkout from './Components/Pages/Checkout';
 import Main from './Components/Pages/Main';
 import Products from './Components/Pages/Products';
+import testContainer from './Components/TestContainer'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import TestContainer from './Components/TestContainer';
 
 
 
@@ -28,7 +31,7 @@ function App() {
                     <Main/>
                   </Route>
                   <Route path="/checkout">
-                    {/*<Checkout/>*/}
+                    <Checkout/>
                   </Route>
                   <Route path="/products">
                     <Products />

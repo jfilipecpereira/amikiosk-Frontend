@@ -1,9 +1,12 @@
 // Import statements comes here.
-import React, {useContext, useState } from 'react';
+import React, {useContext, useState, useEffect } from 'react';
 import '../../Styles/RestScreen.css'
 import '../../Styles/Client.css'
 import Footer from '../Shared/Footer'
 import Header from '../Shared/Header'
+
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
 
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
 
@@ -19,7 +22,6 @@ export const Products = (props) => {
     const [openErrorMessage, setOpenErrorMessage] = useState(false);
     
     const addToCart = (product) => {
-        console.log('hello');
         let exist = cart.find(
           (item) => item === product
         );
@@ -35,6 +37,15 @@ export const Products = (props) => {
         }
 
     }
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpenSuccessMessage(false);
+        setOpenErrorMessage(false);
+    }
+
 
     return(
         <div className="container">
@@ -53,7 +64,7 @@ export const Products = (props) => {
                         </div> 
                     ))}
                     <div className="product">
-                        <p>Produto 1</p>
+                        <p id="teste1">Produto 1</p>
                         <p>preco x </p>
                         <p>preco empresa y </p>
                     </div>
@@ -78,6 +89,16 @@ export const Products = (props) => {
             <div className="grid-item footer">
                 <Footer Text="Voltar" Page="/main"/>
             </div>
+            <Snackbar open={openSuccessMessage} autoHideDuration={6000} onClose={handleClose} className="snackBar">
+                <Alert onClose={handleClose} severity="success" className="snackBar">
+                    Tarifa Adicionada ao Carrinho
+                </Alert>
+              </Snackbar>
+              <Snackbar open={openErrorMessage} autoHideDuration={6000} onClose={handleClose} className="snackBar">
+                <Alert onClose={handleClose} severity="warning" className="snackBar">
+                    Tarifa já existente no carrinho
+                </Alert>
+              </Snackbar>
         </div>
     )
 

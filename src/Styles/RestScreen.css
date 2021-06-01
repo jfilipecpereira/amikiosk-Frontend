@@ -1,9 +1,5 @@
 .blob{
-    position: absolute;
-    left: 27.22%;
-    right: 22.22%;
-    top: 42.45%;
-    bottom: 32.99%;
+    padding-top: 500px;
 }
 
 .container{
@@ -34,8 +30,8 @@
 
 .touchToStart{
     position:absolute;
-    left: 480px;
-    top: 1200px;
+    top:900px;
+    width: calc(100% - 60px);
     font-family: Nunito;
     font-style: normal;
     font-weight: 900;
@@ -44,7 +40,6 @@
     text-align: center;
     text-transform: capitalize;
     color: #FFFFFF;
-
 }
 
 #pass{

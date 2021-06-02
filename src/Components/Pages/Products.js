@@ -1,5 +1,11 @@
 // Import statements comes here.
 import React, { useContext, useState } from "react"
+import {
+	createMuiTheme,
+	makeStyles,
+	ThemeProvider,
+	MuiThemeProvider,
+} from "@material-ui/core/styles"
 import "../../Styles/RestScreen.css"
 import "../../Styles/Client.css"
 import Footer from "../Shared/Footer"
@@ -39,7 +45,6 @@ export const Products = () => {
 		setOpenSuccessMessage(false)
 		setOpenErrorMessage(false)
 	}
-
 	return (
 		<div className='container'>
 			<div className='grid-item header'>
@@ -93,7 +98,7 @@ export const Products = () => {
 			</div>
 			<Snackbar
 				open={openSuccessMessage}
-				autoHideDuration={6000}
+				autoHideDuration={3000}
 				onClose={handleClose}
 				className='snackBar'
 			>
@@ -107,7 +112,7 @@ export const Products = () => {
 			</Snackbar>
 			<Snackbar
 				open={openErrorMessage}
-				autoHideDuration={6000}
+				autoHideDuration={3000}
 				onClose={handleClose}
 				className='snackBar'
 			>

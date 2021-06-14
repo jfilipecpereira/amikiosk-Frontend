@@ -1,5 +1,5 @@
 // Import statements comes here.
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import "../../Styles/RestScreen.css"
 import "../../Styles/Client.css"
 import CardFlipping from "./Card"
@@ -7,17 +7,19 @@ import CardFlipping from "./Card"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
-
+import { ClientContext } from "../../Contexts/ClientContext"
 import { Redirect } from "react-router"
 
 export const Content = () => {
 	const [isFlipped, setisFlipped] = useState(false)
 	const [redirectProducts, setredirectProducts] = useState(false)
+	const [client, setClient] = useContext(ClientContext)
 
 	const handleFlip = () => {
 		setisFlipped(!isFlipped)
 	}
 
+	console.log(client)
 	return (
 		<>
 			{redirectProducts ? <Redirect to='/products' /> : null}

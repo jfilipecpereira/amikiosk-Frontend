@@ -7,6 +7,11 @@ i18n.use(Backend)
 	// learn more: https://github.com/i18next/i18next-browser-languageDetector
 	.use(initReactI18next)
 	.init({
+		backend: {
+			loadPath: "http://localhost:5000/api/Language/{{lng}}",
+			allowMultiLoading: true,
+			crossDomain: true,
+		},
 		fallbackLng: "pt",
 		debug: true,
 

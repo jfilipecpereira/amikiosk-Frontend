@@ -9,6 +9,7 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"
 
 import { Redirect } from "react-router-dom"
 import VATData from "./VATData"
+import MB from "./MB"
 
 export const Stepper = () => {
 	const [step, setStep] = useState(1)
@@ -53,7 +54,7 @@ export const Stepper = () => {
 		case 2:
 			return (
 				<>
-					Teste2
+					<MB mainText='Realize o pagamento no TPA' />
 					{arrowActions()}
 				</>
 			)

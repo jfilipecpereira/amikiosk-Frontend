@@ -2,10 +2,8 @@
 import React, { useContext, useState, useRef, useEffect } from "react"
 import "../../Styles/Checkout.css"
 import { useTranslation, withTranslation, Trans } from "react-i18next"
-import TextField from "@material-ui/core/TextField"
 import Keyboard from "react-simple-keyboard"
 import "react-simple-keyboard/build/css/index.css"
-
 import { ClientContext } from "../../Contexts/ClientContext"
 
 export const VATData = (props) => {
@@ -44,10 +42,75 @@ export const VATData = (props) => {
 		<>
 			<div className='welcomeText'>{props.mainText}</div>
 			<div className='cardImageContainer checkoutContainer'>
-				<div onClick={() => onChangeSource("nif")}>
+				<div className='centered' onClick={() => onChangeSource("nif")}>
+					<label>
+						<input
+							type='text'
+							className='textfield'
+							value={clientData.clientData.nif}
+						/>
+						<span className='placeholder'>Contribuinte</span>
+					</label>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<div
+					className='centered'
+					onClick={() => onChangeSource("name")}
+				>
+					<label>
+						<input
+							type='text'
+							className='textfield'
+							value={clientData.clientData.name}
+						/>
+						<span className='placeholder'>Nome</span>
+					</label>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<div
+					className='centered'
+					onClick={() => onChangeSource("address")}
+				>
+					<label>
+						<input
+							type='text'
+							className='textfield'
+							value={clientData.clientData.address}
+						/>
+						<span className='placeholder'>Morada</span>
+					</label>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<div
+					className='centered'
+					onClick={() => onChangeSource("postalC")}
+				>
+					<label>
+						<input
+							type='text'
+							className='textfield'
+							value={clientData.clientData.postalC}
+						/>
+						<span className='placeholder'>Código Postal</span>
+					</label>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				{/*<div onClick={() => onChangeSource("nif")}>
 					<TextField
 						id='nif'
-						label='Contribuinte'
+						label='Contribuinte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
 						variant='outlined'
 						value={clientData.clientData.nif}
 						error
@@ -56,7 +119,7 @@ export const VATData = (props) => {
 				<div onClick={() => onChangeSource("name")}>
 					<TextField
 						id='name'
-						label='Nome'
+						label='Nome&nbsp;&nbsp;&nbsp;'
 						variant='outlined'
 						value={clientData.clientData.name}
 						error
@@ -65,7 +128,7 @@ export const VATData = (props) => {
 				<div onClick={() => onChangeSource("address")}>
 					<TextField
 						id='address'
-						label='Morada'
+						label='Morada&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
 						variant='outlined'
 						value={clientData.clientData.address}
 						error
@@ -74,17 +137,30 @@ export const VATData = (props) => {
 				<div onClick={() => onChangeSource("postalC")}>
 					<TextField
 						id='postalC'
-						label='Código Postal'
+						label='Código Postal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
 						variant='outlined'
 						value={clientData.clientData.postalC}
 						error
 					/>
-				</div>
-
+				</div>*/}
 				<Keyboard
 					keyboardRef={(r) => (keyboard.current = r)}
 					onChange={onChange}
 					disableCaretPositioning='true'
+					layoutName='ip'
+					layout={{
+						ip: [
+							"1 2 3 4 5 6 7 8 9 0",
+							"Q W E R T Y U I O P {backspace}",
+							"A S D F G H J K L",
+							"Z X C V B N M , . -",
+							"{space}",
+						],
+					}}
+					display={{
+						"{space}": " ",
+						"{backspace}": "⌫",
+					}}
 				/>
 			</div>
 		</>

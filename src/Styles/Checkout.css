@@ -23,3 +23,64 @@
     width: 100%;
     padding-bottom: 50px !important;
 }
+
+/*Text box Google Style by fP*/
+.centered {
+    position: relative;
+}
+.textfield {
+    position: relative;
+    height: 60px;
+    font-size: 24px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: calc(100% - 30px);
+    border:1px solid red;
+    border-radius:5px;
+    box-shadow: none;
+    background: #F5F6FA;
+}
+.centered span {
+    position: absolute;
+    z-index: 1;
+    background-color: #F5F6FA;
+    top: 5px;
+    left: 15px;
+    color:red;
+    padding:0 5px;
+    font-size: 25px;
+}
+.textfield:focus {
+    border:1px solid red;
+    outline:none;
+}
+input:focus ~ span,
+input:not(:focus):valid ~ span {
+    top:-15px;
+    left: 10px;
+    transform: translate(0, 1.5px) scale(0.7);
+    transform-origin: top left;
+}
+.textfield, span {
+	transition: ease-in-out 0.2s all;
+	-webkit-transition: ease-in-out 0.2s all;
+	-moz-transition: ease-in-out 0.2s all;
+	-o-transition: ease-in-out 0.2s all;
+}
+
+
+/*keyboard Theme adjust*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NÃO ATUALIZAR O PACOTE SIMPLE-REACT-KEYBOARD SEM AUTORIZAÇÃO DO fP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*
+O seguinte código sobrepõe certas configurações de css. Ao atualizar o pacote do teclado, o desenvolvedor pode alterar o nome das classes
+e estas alterações perdem o efeito, podendo levar a que o teclado fique totalmente desformatado
+*/
+.hg-theme-default{
+    background: transparent !important;
+    padding: 0px !important;
+}
+
+.hg-theme-default .hg-button{
+    border: 1px solid #b5b5b5 !important;
+    height: 70px !important;
+}

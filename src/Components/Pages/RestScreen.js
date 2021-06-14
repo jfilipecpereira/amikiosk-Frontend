@@ -9,6 +9,7 @@ import { CartContext } from "../../Contexts/CartContext"
 import companyLogo from "../../images/transdevLogo.png"
 import amiKIOSK from "../../images/amiKIOSK.png"
 import passCard from "../../images/passCard.png"
+
 export const RestScreen = () => {
 	const [client, setClient] = useContext(ClientContext)
 	const [cart, setCart] = useContext(CartContext)
@@ -21,6 +22,8 @@ export const RestScreen = () => {
 		setClient(null)
 		setCart([])
 	}, [])
+
+	const { t, i18n } = useTranslation()
 
 	const sampleData = {
 		name: "Matilde Rosendo Pereira",
@@ -139,7 +142,8 @@ export const RestScreen = () => {
 						id='touchToStart'
 						onClick={readCard}
 					>
-						Touch to Start
+						{/*Touch to Start*/}
+						{t("RES_AddedImplicitProfiles")}
 					</p>
 				</div>
 				<div id='pass' style={{ display: state.passCard }}>

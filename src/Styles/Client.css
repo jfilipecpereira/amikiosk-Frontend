@@ -121,4 +121,7 @@
     font-weight: 900;
 }
 
+.MuiAlert-message{
+    font-size: 24px;
+}
 

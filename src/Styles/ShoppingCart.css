@@ -110,13 +110,15 @@
 }
 
 .cartIcon{
+    position: relative;
     margin-left: 70px;
 }
 
 .numberItemsinCart{
     position: absolute;
-    right: 11%;
-    top: 2.8%;
+    right: 52.5%;
+    top: 11%;
+
 
     font-family: Nunito;
     font-style: normal;

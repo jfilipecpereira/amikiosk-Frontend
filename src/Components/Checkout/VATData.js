@@ -1,12 +1,14 @@
 // Import statements comes here.
 import React, { useContext, useState, useRef, useEffect } from "react"
+import PropTypes from "prop-types"
 import "../../Styles/Checkout.css"
-import { useTranslation, withTranslation, Trans } from "react-i18next"
+import { useTranslation } from "react-i18next"
 import Keyboard from "react-simple-keyboard"
 import "react-simple-keyboard/build/css/index.css"
 import { ClientContext } from "../../Contexts/ClientContext"
 
 export const VATData = (props) => {
+	const { t } = useTranslation()
 	const [client, setClient] = useContext(ClientContext)
 	const [clientData, setClientData] = useState(client)
 	const [activeInput, setActiveInput] = useState()
@@ -47,102 +49,61 @@ export const VATData = (props) => {
 						<input
 							type='text'
 							className='textfield'
+							onChange={() => {}}
 							value={clientData.clientData.nif}
 						/>
-						<span className='placeholder'>Contribuinte</span>
+						<span className='placeholder'>{t("RES_NumberTaxpayer")}</span>
 					</label>
 				</div>
 				<br />
 				<br />
 				<br />
 				<br />
-				<div
-					className='centered'
-					onClick={() => onChangeSource("name")}
-				>
+				<div className='centered' onClick={() => onChangeSource("name")}>
 					<label>
 						<input
 							type='text'
 							className='textfield'
+							onChange={() => {}}
 							value={clientData.clientData.name}
 						/>
-						<span className='placeholder'>Nome</span>
+						<span className='placeholder'>{t("RES_FullName")}</span>
 					</label>
 				</div>
 				<br />
 				<br />
 				<br />
 				<br />
-				<div
-					className='centered'
-					onClick={() => onChangeSource("address")}
-				>
+				<div className='centered' onClick={() => onChangeSource("address")}>
 					<label>
 						<input
 							type='text'
 							className='textfield'
+							onChange={() => {}}
 							value={clientData.clientData.address}
 						/>
-						<span className='placeholder'>Morada</span>
+						<span className='placeholder'>{t("RES_Address")}</span>
 					</label>
 				</div>
 				<br />
 				<br />
 				<br />
 				<br />
-				<div
-					className='centered'
-					onClick={() => onChangeSource("postalC")}
-				>
+				<div className='centered' onClick={() => onChangeSource("postalC")}>
 					<label>
 						<input
 							type='text'
 							className='textfield'
+							onChange={() => {}}
 							value={clientData.clientData.postalC}
 						/>
-						<span className='placeholder'>Código Postal</span>
+						<span className='placeholder'>{t("RES_PostalCode")}</span>
 					</label>
 				</div>
 				<br />
 				<br />
 				<br />
 				<br />
-				{/*<div onClick={() => onChangeSource("nif")}>
-					<TextField
-						id='nif'
-						label='Contribuinte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-						variant='outlined'
-						value={clientData.clientData.nif}
-						error
-					/>
-				</div>
-				<div onClick={() => onChangeSource("name")}>
-					<TextField
-						id='name'
-						label='Nome&nbsp;&nbsp;&nbsp;'
-						variant='outlined'
-						value={clientData.clientData.name}
-						error
-					/>
-				</div>
-				<div onClick={() => onChangeSource("address")}>
-					<TextField
-						id='address'
-						label='Morada&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-						variant='outlined'
-						value={clientData.clientData.address}
-						error
-					/>
-				</div>
-				<div onClick={() => onChangeSource("postalC")}>
-					<TextField
-						id='postalC'
-						label='Código Postal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-						variant='outlined'
-						value={clientData.clientData.postalC}
-						error
-					/>
-				</div>*/}
 				<Keyboard
 					keyboardRef={(r) => (keyboard.current = r)}
 					onChange={onChange}
@@ -165,6 +126,9 @@ export const VATData = (props) => {
 			</div>
 		</>
 	)
+}
+VATData.propTypes = {
+	mainText: PropTypes.string.isRequired,
 }
 
 export default VATData

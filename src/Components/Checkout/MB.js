@@ -1,7 +1,7 @@
 // Import statements comes here.
-import React, { useContext, useState, useEffect } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import "../../Styles/Checkout.css"
-import { useTranslation, withTranslation, Trans } from "react-i18next"
 import "../../Styles/Checkout.css"
 import mbIcon from "../../images/mb.svg"
 
@@ -14,6 +14,10 @@ export const MB = (props) => {
 			</div>
 		</>
 	)
+}
+
+MB.propTypes = {
+	mainText: PropTypes.string.isRequired,
 }
 
 export default MB

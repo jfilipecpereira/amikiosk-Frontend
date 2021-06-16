@@ -5,10 +5,11 @@ import "../../Styles/Client.css"
 import Footer from "../Shared/Footer"
 import Header from "../Shared/Header"
 import Content from "../Main/Content"
-
-//import { useTranslation, withTranslation, Trans } from "react-i18next"
+import { useTranslation } from "react-i18next"
 
 export const Main = () => {
+	const { t } = useTranslation()
+
 	return (
 		<div className='container'>
 			<div className='grid-item header'>
@@ -18,7 +19,7 @@ export const Main = () => {
 				<Content />
 			</div>
 			<div className='grid-item footer'>
-				<Footer Text='Sair' Page='/' />
+				<Footer Text={t("RES_Sair")} Page='/' />
 			</div>
 		</div>
 	)

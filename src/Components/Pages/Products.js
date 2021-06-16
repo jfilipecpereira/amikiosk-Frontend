@@ -1,16 +1,10 @@
 // Import statements comes here.
 import React, { useContext, useState } from "react"
-import {
-	createMuiTheme,
-	makeStyles,
-	ThemeProvider,
-	MuiThemeProvider,
-} from "@material-ui/core/styles"
 import "../../Styles/RestScreen.css"
 import "../../Styles/Client.css"
 import Footer from "../Shared/Footer"
 import Header from "../Shared/Header"
-
+import { useTranslation } from "react-i18next"
 import Snackbar from "@material-ui/core/Snackbar"
 import Alert from "@material-ui/lab/Alert"
 
@@ -20,7 +14,9 @@ import { ClientContext } from "../../Contexts/ClientContext"
 import { CartContext } from "../../Contexts/CartContext"
 
 export const Products = () => {
-	const [client, setClient] = useContext(ClientContext)
+	const { t } = useTranslation()
+
+	const [client] = useContext(ClientContext)
 	const [cart, setCart] = useContext(CartContext)
 
 	const [openSuccessMessage, setOpenSuccessMessage] = useState(false)
@@ -51,23 +47,17 @@ export const Products = () => {
 				<Header />
 			</div>
 			<div className='grid-item content'>
-				<div className='welcomeText'>Escolha o seu produto</div>
+				<div className='welcomeText'>{t("RES_Products")}</div>
 				<div className='products'>
-					{client.clientData.contractsToReload.map((contract) => (
+					{client.clientData.contractsToReload.map((contract, index) => (
 						// eslint-disable-next-line react/jsx-key
-						<div
-							className='product'
-							onClick={() => addToCart(contract)}
-						>
+						<div className='product' key={index} onClick={() => addToCart(contract)}>
 							<p className='contractName'>{contract.name}</p>
 							<p className='validatyInterval'>
 								{contract.dateInit} - {contract.dateEnd}
 							</p>
 							<p>
-								Valor:{" "}
-								<span className='valueText'>
-									{contract.price.toFixed(2)}
-								</span>
+								{t("RES_SubTotal")}: <span className='valueText'>{contract.price.toFixed(2)}</span>
 							</p>
 						</div>
 					))}
@@ -96,32 +86,14 @@ export const Products = () => {
 			<div className='grid-item footer'>
 				<Footer Text='Voltar' Page='/main' />
 			</div>
-			<Snackbar
-				open={openSuccessMessage}
-				autoHideDuration={3000}
-				onClose={handleClose}
-				className='snackBar'
-			>
-				<Alert
-					onClose={handleClose}
-					severity='success'
-					className='snackBar'
-				>
+			<Snackbar open={openSuccessMessage} autoHideDuration={3000} onClose={handleClose} className='snackBar'>
+				<Alert onClose={handleClose} severity='success' className='snackBar'>
 					Tarifa Adicionada ao Carrinho
 				</Alert>
 			</Snackbar>
-			<Snackbar
-				open={openErrorMessage}
-				autoHideDuration={3000}
-				onClose={handleClose}
-				className='snackBar'
-			>
-				<Alert
-					onClose={handleClose}
-					severity='warning'
-					className='snackBar'
-				>
-					Tarifa já existente no carrinho
+			<Snackbar open={openErrorMessage} autoHideDuration={3000} onClose={handleClose} className='snackBar'>
+				<Alert onClose={handleClose} severity='warning' className='snackBar'>
+					{t("RES_ContractAlreadyExist")}
 				</Alert>
 			</Snackbar>
 		</div>

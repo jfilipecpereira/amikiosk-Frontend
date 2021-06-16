@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 export default function ShoppingCart() {
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 
 	const [cart, setCart] = useContext(CartContext)
 
@@ -38,11 +38,7 @@ export default function ShoppingCart() {
 	})
 
 	const toggleDrawer = (anchor, open) => (event) => {
-		if (
-			event &&
-			event.type === "keydown" &&
-			(event.key === "Tab" || event.key === "Shift")
-		) {
+		if (event && event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
 			return
 		}
 
@@ -63,15 +59,12 @@ export default function ShoppingCart() {
 		>
 			<div className='cartContainer'>
 				<div className='cartHeader'>
-					Carrinho de Compras
+					{t("RES_Basket")}
 					{cart.length > 0 ? (
 						<>
 							{" "}
-							({cart.length}) <br />{" "}
-							<span className='totalPrice'>{t("Total")}:</span>{" "}
-							<span className='price'>
-								{totalPrice.toFixed(2)} €{" "}
-							</span>
+							({cart.length}) <br /> <span className='totalPrice'>{t("RES_Total")}:</span>{" "}
+							<span className='price'>{totalPrice.toFixed(2)} € </span>
 						</>
 					) : (
 						<></>
@@ -85,29 +78,20 @@ export default function ShoppingCart() {
 								<p className='NomePasse'>{item.name}</p>
 								<p className='DetalhePasse'>{t("Mes")}: Maio</p>
 								<p className='DetalhePasse'>
-									Total: {item.price}
+									{t("RES_Total")}: {item.price.toFixed(2)}€
 								</p>
 							</div>
 							<div className='ItemDelete'>
-								<FontAwesomeIcon
-									onClick={() => removeFromCart(item)}
-									icon={faTrash}
-									size='3x'
-								/>
+								<FontAwesomeIcon onClick={() => removeFromCart(item)} icon={faTrash} size='3x' />
 							</div>
 						</div>
 					))}
 
 					{cart.length === 0 ? (
 						<div className='emptyCart'>
-							<img
-								src={emptyCartImage}
-								className='imgEmptyCart'
-							/>
+							<img src={emptyCartImage} className='imgEmptyCart' />
 							<br />
-							<span className='emptyCartText'>
-								Carrinho Vazio
-							</span>
+							<span className='emptyCartText'>Carrinho Vazio</span>
 						</div>
 					) : (
 						<></>
@@ -116,14 +100,8 @@ export default function ShoppingCart() {
 					<div className='checkout'>
 						{cart.length > 0 ? (
 							<>
-								<NavLink
-									to='/checkout'
-									style={{ width: "45%" }}
-								>
-									<Button
-										variant='contained'
-										className='checkoutButton'
-									>
+								<NavLink to='/checkout' style={{ width: "45%" }}>
+									<Button variant='contained' className='checkoutButton'>
 										Finalizar
 									</Button>
 								</NavLink>
@@ -133,7 +111,7 @@ export default function ShoppingCart() {
 									style={{ width: "45%" }}
 									onClick={toggleDrawer(anchor, false)}
 								>
-									Sair
+									{t("RES_Sair")}
 								</Button>
 							</>
 						) : (
@@ -148,15 +126,8 @@ export default function ShoppingCart() {
 	return (
 		<div className='cartIcon'>
 			<React.Fragment key={"bottom"}>
-				<img
-					src={cartIcon}
-					width='130'
-					onClick={toggleDrawer("bottom", true)}
-				/>
-				<span
-					className='numberItemsinCart'
-					onClick={toggleDrawer("bottom", true)}
-				>
+				<img src={cartIcon} width='130' onClick={toggleDrawer("bottom", true)} />
+				<span className='numberItemsinCart' onClick={toggleDrawer("bottom", true)}>
 					{cart.length}
 				</span>
 				<SwipeableDrawer
@@ -164,7 +135,6 @@ export default function ShoppingCart() {
 					open={state["bottom"]}
 					onClose={toggleDrawer("bottom", false)}
 					onOpen={toggleDrawer("bottom", true)}
-					swipeAreaWidth='500'
 				>
 					{list("bottom")}
 				</SwipeableDrawer>

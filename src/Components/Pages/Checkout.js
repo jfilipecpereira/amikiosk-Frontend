@@ -19,7 +19,7 @@ export const Checkout = () => {
 				<Stepper />
 			</div>
 			<div className='grid-item footer'>
-				<Footer />
+				<Footer Page='teste' />
 			</div>
 		</div>
 	)

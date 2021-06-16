@@ -1,5 +1,6 @@
 // Import statements comes here.
-import React, { useContext } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import "../../Styles/RestScreen.css"
 import "../../Styles/Client.css"
 import card from "../../images/card.png"
@@ -10,10 +11,7 @@ import ReactCardFlip from "react-card-flip"
 export const CardFlipping = (props) => {
 	return (
 		<>
-			<ReactCardFlip
-				isFlipped={props.isFlipped}
-				flipDirection='horizontal'
-			>
+			<ReactCardFlip isFlipped={props.isFlipped} flipDirection='horizontal'>
 				<div>
 					<img src={card} className='cardImage' />
 				</div>
@@ -26,22 +24,13 @@ export const CardFlipping = (props) => {
 								<p>Transdev Interior SA</p>
 								<p>
 									{" "}
-									<span className='expirationDateText'>
-										Validade:
-									</span>{" "}
-									31/05/2021
+									<span className='expirationDateText'>Validade:</span> 31/05/2021
 								</p>
 								<p>
-									<span className='expirationDateText'>
-										Origem:
-									</span>{" "}
-									Carvalhinhos
+									<span className='expirationDateText'>Origem:</span> Carvalhinhos
 								</p>
 								<p style={{ margin: "0" }}>
-									<span className='expirationDateText'>
-										Destino:
-									</span>{" "}
-									Braga
+									<span className='expirationDateText'>Destino:</span> Braga
 								</p>
 							</div>
 						</div>
@@ -51,22 +40,13 @@ export const CardFlipping = (props) => {
 								<p>Transdev Interior SA</p>
 								<p>
 									{" "}
-									<span className='expirationDateText'>
-										Validade:
-									</span>{" "}
-									31/05/2021
+									<span className='expirationDateText'>Validade:</span> 31/05/2021
 								</p>
 								<p>
-									<span className='expirationDateText'>
-										Origem:
-									</span>{" "}
-									Carvalhinhos
+									<span className='expirationDateText'>Origem:</span> Carvalhinhos
 								</p>
 								<p style={{ margin: "0" }}>
-									<span className='expirationDateText'>
-										Destino:
-									</span>{" "}
-									Braga
+									<span className='expirationDateText'>Destino:</span> Braga
 								</p>
 							</div>
 						</div>
@@ -76,22 +56,13 @@ export const CardFlipping = (props) => {
 								<p>Transdev Interior SA</p>
 								<p>
 									{" "}
-									<span className='expirationDateText'>
-										Validade:
-									</span>{" "}
-									31/05/2021
+									<span className='expirationDateText'>Validade:</span> 31/05/2021
 								</p>
 								<p>
-									<span className='expirationDateText'>
-										Origem:
-									</span>{" "}
-									Carvalhinhos
+									<span className='expirationDateText'>Origem:</span> Carvalhinhos
 								</p>
 								<p style={{ margin: "0" }}>
-									<span className='expirationDateText'>
-										Destino:
-									</span>{" "}
-									Braga
+									<span className='expirationDateText'>Destino:</span> Braga
 								</p>
 							</div>
 						</div>
@@ -101,22 +72,13 @@ export const CardFlipping = (props) => {
 								<p>Transdev Interior SA</p>
 								<p>
 									{" "}
-									<span className='expirationDateText'>
-										Validade:
-									</span>{" "}
-									31/05/2021
+									<span className='expirationDateText'>Validade:</span> 31/05/2021
 								</p>
 								<p>
-									<span className='expirationDateText'>
-										Origem:
-									</span>{" "}
-									Carvalhinhos
+									<span className='expirationDateText'>Origem:</span> Carvalhinhos
 								</p>
 								<p style={{ margin: "0" }}>
-									<span className='expirationDateText'>
-										Destino:
-									</span>{" "}
-									Braga
+									<span className='expirationDateText'>Destino:</span> Braga
 								</p>
 							</div>
 						</div>
@@ -125,6 +87,10 @@ export const CardFlipping = (props) => {
 			</ReactCardFlip>
 		</>
 	)
+}
+
+CardFlipping.propTypes = {
+	isFlipped: PropTypes.bool.isRequired,
 }
 
 export default CardFlipping

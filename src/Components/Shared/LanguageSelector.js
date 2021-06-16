@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
@@ -25,7 +25,7 @@ const styles = (theme) => ({
 })
 
 const DialogTitle = withStyles(styles)((props) => {
-	const { children, classes, onClose, ...other } = props
+	const { children, classes, ...other } = props
 	return (
 		<MuiDialogTitle disableTypography className={classes.root} {...other}>
 			<Typography variant='h6' style={{ fontSize: "35px" }}>
@@ -65,7 +65,7 @@ function SimpleDialog(props) {
 		onClose(selectedValue)
 	}
 
-	const { i18n } = useTranslation()
+	const { t, i18n } = useTranslation()
 
 	const changeLanguage = (lng) => {
 		i18n.changeLanguage(lng)
@@ -73,45 +73,42 @@ function SimpleDialog(props) {
 	}
 
 	return (
-		<Dialog
-			onClose={handleClose}
-			disableTypography='true'
-			aria-labelledby='simple-dialog-title'
-			open={open}
-			maxWidth='sm'
-			fullWidth='true'
-		>
-			<DialogTitle id='ls-dialog-title'>Escolha um idioma</DialogTitle>
-			<List>
-				{idiomas.map((idioma) => (
-					<ListItem
-						button
-						onClick={() => changeLanguage(idioma.sigla)}
-						key={idioma}
-					>
+		<>
+			<Dialog
+				onClose={handleClose}
+				aria-labelledby='simple-dialog-title'
+				open={open}
+				maxWidth='sm'
+				fullWidth={true}
+			>
+				<DialogTitle id='ls-dialog-title'>{t("RES_Language")}</DialogTitle>
+				<List>
+					{idiomas.map((idioma, index) => (
+						<ListItem button onClick={() => changeLanguage(idioma.sigla)} key={index}>
+							<ListItemText
+								primary={idioma.name}
+								style={{
+									textAlign: "center",
+									paddingTop: "20px",
+									paddingBottom: "20px",
+									fontSize: "35px",
+								}}
+							/>
+						</ListItem>
+					))}
+					<ListItem button onClick={() => handleClose()}>
 						<ListItemText
-							primary={idioma.name}
+							primary={t("RES_Cancel")}
 							style={{
 								textAlign: "center",
 								paddingTop: "20px",
 								paddingBottom: "20px",
-								fontSize: "35px",
 							}}
 						/>
 					</ListItem>
-				))}
-				<ListItem button onClick={() => handleClose()}>
-					<ListItemText
-						primary={"Cancelar"}
-						style={{
-							textAlign: "center",
-							paddingTop: "20px",
-							paddingBottom: "20px",
-						}}
-					/>
-				</ListItem>
-			</List>
-		</Dialog>
+				</List>
+			</Dialog>
+		</>
 	)
 }
 
@@ -124,7 +121,7 @@ SimpleDialog.propTypes = {
 export default function LanguageSelector() {
 	const { i18n } = useTranslation()
 	const [open, setOpen] = React.useState(false)
-	const [selectedValue, setSelectedValue] = React.useState(idiomas.sigla)
+	const [selectedValue, setSelectedValue] = React.useState(idiomas[0].sigla)
 
 	const handleClickOpen = () => {
 		setOpen(true)
@@ -143,27 +140,15 @@ export default function LanguageSelector() {
 			}
 		})
 
-		return (
-			<img
-				src={image}
-				onClick={handleClickOpen}
-				className='flagImage'
-				width='100'
-				height='60'
-			/>
-		)
+		return <img src={image} onClick={handleClickOpen} className='flagImage' width='100' height='60' />
 	}
 
 	return (
-		<div className='flag'>
-			{Image}
-			<Image />
-			<SimpleDialog
-				selectedValue={selectedValue}
-				open={open}
-				onClose={handleClose}
-				maxWidth='lg'
-			/>
-		</div>
+		<>
+			<div className='flag'>
+				<Image />
+				<SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} maxWidth='lg' />
+			</div>
+		</>
 	)
 }

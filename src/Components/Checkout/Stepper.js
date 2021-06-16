@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import "../../Styles/RestScreen.css"
 import "../../Styles/Client.css"
-import { useTranslation, withTranslation, Trans } from "react-i18next"
+import { useTranslation } from "react-i18next"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"
@@ -12,6 +12,7 @@ import VATData from "./VATData"
 import MB from "./MB"
 
 export const Stepper = () => {
+	const { t } = useTranslation()
 	const [step, setStep] = useState(1)
 	const [goBack, setGoBack] = useState(false)
 
@@ -25,17 +26,12 @@ export const Stepper = () => {
 
 	const arrowActions = () => (
 		<>
-			<div
-				className='prevStep'
-				onClick={step > 1 ? prevStep : () => setGoBack(true)}
-			>
+			<div className='prevStep' onClick={step > 1 ? prevStep : () => setGoBack(true)}>
 				<FontAwesomeIcon size='8x' icon={faAngleLeft} />
-				<span className='goBackText'>
-					{step > 1 ? <>Anterior</> : <>Voltar</>}
-				</span>
+				<span className='goBackText'>{step > 1 ? <>{t("RES_Previous")}</> : <>Voltar</>}</span>
 			</div>
 			<div className='nextStep' onClick={nextStep}>
-				<span className='goBackText'>Seguinte</span>
+				<span className='goBackText'>{t("RES_Next")}</span>
 				<FontAwesomeIcon size='8x' icon={faAngleRight} />
 			</div>
 		</>
@@ -47,14 +43,14 @@ export const Stepper = () => {
 		case 1:
 			return (
 				<>
-					<VATData mainText='Dados de Faturação' />
+					<VATData mainText={t("RES_DataBilling")} />
 					{arrowActions()}
 				</>
 			)
 		case 2:
 			return (
 				<>
-					<MB mainText='Realize o pagamento no TPA' />
+					<MB mainText={t("RES_ATM")} />
 					{arrowActions()}
 				</>
 			)

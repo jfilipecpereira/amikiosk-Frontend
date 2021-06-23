@@ -12,7 +12,7 @@ i18n.use(Backend)
 			allowMultiLoading: true,
 			crossDomain: true,
 		},
-		fallbackLng: "pt",
+		fallbackLng: "ptPT",
 		debug: true,
 
 		interpolation: {

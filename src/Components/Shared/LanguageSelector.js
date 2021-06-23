@@ -38,22 +38,22 @@ const DialogTitle = withStyles(styles)((props) => {
 const idiomas = [
 	{
 		name: "Português",
-		sigla: "pt",
+		sigla: "ptPT",
 		image: portugues,
 	},
 	{
 		name: "Inglês",
-		sigla: "en",
+		sigla: "enGB",
 		image: ingles,
 	},
 	{
 		name: "Espanhol",
-		sigla: "es",
+		sigla: "esES",
 		image: espanhol,
 	},
 	{
 		name: "Francês",
-		sigla: "fr",
+		sigla: "frFR",
 		image: frances,
 	},
 ]
@@ -135,6 +135,7 @@ export default function LanguageSelector() {
 	const Image = () => {
 		let image = null
 		idiomas.map((idioma) => {
+			console.log(i18n.language)
 			if (idioma.sigla == i18n.language) {
 				image = idioma.image
 			}

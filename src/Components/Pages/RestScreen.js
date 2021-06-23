@@ -85,6 +85,11 @@ export const RestScreen = () => {
 			touchDisplay: "none",
 		})
 		await waitingCard()
+		setState({
+			//redirect: true
+			passCard: "none",
+			touchDisplay: "block",
+		})
 	}
 
 	function sleep(ms) {
@@ -92,20 +97,21 @@ export const RestScreen = () => {
 	}
 
 	const waitingCard = async () => {
-		/*const response = await fetch('http://localhost:5000/api/ClientData');
-        const data = await response.json();
-        if(data.status != 200){
-            setState({cancel: true})
-            //setState({redirect: true})
-            //setClient({clientData: dataSample});
-                
-        }else{
-            setClient({clientData: data});
-            setState({...state, redirect: true})
-        }*/
-		await sleep(3000)
-		await setClient({ clientData: sampleData })
-		setState({ ...state, redirect: true })
+		try {
+			const response = await fetch("http://localhost:5000/api/ClientData")
+			const data = await response.json()
+			if (data.status != 200) {
+				setState({ cancel: true })
+			} else {
+				setClient({ clientData: data })
+				setState({ ...state, redirect: true })
+			}
+		} catch (err) {
+			console.error(err)
+		}
+		//await sleep(3000)
+		//await setClient({ clientData: sampleData })
+		//setState({ ...state, redirect: true })
 	}
 
 	if (state.redirect) {

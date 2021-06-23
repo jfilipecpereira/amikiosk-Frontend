@@ -3,13 +3,13 @@ import React, { useState } from "react"
 import "../../Styles/RestScreen.css"
 import "../../Styles/Client.css"
 import { useTranslation } from "react-i18next"
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons"
 
 import { Redirect } from "react-router-dom"
 import VATData from "./VATData"
 import MB from "./MB"
+import Final from "./Final"
 
 export const Stepper = () => {
 	const { t } = useTranslation()
@@ -57,7 +57,7 @@ export const Stepper = () => {
 		case 3:
 			return (
 				<>
-					Teste3
+					<Final mainText='Final' />
 					{arrowActions()}
 				</>
 			)

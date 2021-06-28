@@ -43,7 +43,7 @@ export const Stepper = () => {
 		case 1:
 			return (
 				<>
-					<VATData mainText={t("RES_DataBilling")} />
+					<VATData mainText={t("RES_Billing")} />
 					{arrowActions()}
 				</>
 			)

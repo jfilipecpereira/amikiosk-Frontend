@@ -61,26 +61,6 @@ export const Products = () => {
 							</p>
 						</div>
 					))}
-					<div className='product'>
-						<p id='teste1'>Produto 1</p>
-						<p>preco x </p>
-						<p>preco empresa y </p>
-					</div>
-					<div className='product'>
-						<p>Produto 2</p>
-						<p>preco x </p>
-						<p>preco empresa y </p>
-					</div>
-					<div className='product'>
-						<p>Produto 3</p>
-						<p>preco x </p>
-						<p>preco empresa y </p>
-					</div>
-					<div className='product'>
-						<p>Produto 3</p>
-						<p>preco x </p>
-						<p>preco empresa y </p>
-					</div>
 				</div>
 			</div>
 			<div className='grid-item footer'>

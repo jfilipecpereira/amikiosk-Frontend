@@ -8,7 +8,6 @@ import Main from "./Components/Pages/Main"
 import Products from "./Components/Pages/Products"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-
 function App() {
 	return (
 		<ClientProvider>

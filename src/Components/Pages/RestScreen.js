@@ -98,7 +98,7 @@ export const RestScreen = () => {
 
 	const waitingCard = async () => {
 		try {
-			const response = await fetch("http://localhost:5000/api/ClientData")
+			const response = await fetch("https://localhost:5001/api/ClientData")
 			const data = await response.json()
 			if (data.status != 200) {
 				setState({ cancel: true })
@@ -142,7 +142,7 @@ export const RestScreen = () => {
 						</svg>
 						<p className='touchToStart' id='touchToStart' onClick={readCard}>
 							{/*Touch to Start*/}
-							{t("RES_Sair")}
+							{t("RES_touchToStart")}
 						</p>
 					</div>
 					<div id='pass' style={{ display: state.passCard }}>

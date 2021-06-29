@@ -119,7 +119,7 @@ export const VATData = (props) => {
 						],
 					}}
 					display={{
-						"{space}": " ",
+						"{space}": "Espaço",
 						"{backspace}": "⌫",
 					}}
 				/>

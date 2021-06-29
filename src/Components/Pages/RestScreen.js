@@ -85,11 +85,6 @@ export const RestScreen = () => {
 			touchDisplay: "none",
 		})
 		await waitingCard()
-		setState({
-			//redirect: true
-			passCard: "none",
-			touchDisplay: "block",
-		})
 	}
 
 	function sleep(ms) {
@@ -102,6 +97,10 @@ export const RestScreen = () => {
 			const data = await response.json()
 			if (data.status != 200) {
 				setState({ cancel: true })
+				setState({
+					passCard: "none",
+					touchDisplay: "block",
+				})
 			} else {
 				setClient({ clientData: data })
 				setState({ ...state, redirect: true })
@@ -140,7 +139,7 @@ export const RestScreen = () => {
 								fill='#FF7E7E'
 							/>
 						</svg>
-						<p className='touchToStart' id='touchToStart' onClick={readCard}>
+						<p className='touchToStart' id='touchToStart' onClick={() => readCard}>
 							{/*Touch to Start*/}
 							{t("RES_touchToStart")}
 						</p>

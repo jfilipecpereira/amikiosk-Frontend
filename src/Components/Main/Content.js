@@ -25,7 +25,9 @@ export const Content = () => {
 	return (
 		<>
 			{redirectProducts ? <Redirect to='/products' /> : null}
-			<div className='welcomeText'>{t("RES_Welcome")}, Matilde</div>
+			<div className='welcomeText'>
+				{t("RES_Welcome")}, {client.clientData.name.split(" ").shift() + " " + client.clientData.name.split(" ").pop()}
+			</div>
 			<div className='cardImageContainer'>
 				<CardFlipping isFlipped={isFlipped} setisFlipped={setisFlipped} />
 			</div>

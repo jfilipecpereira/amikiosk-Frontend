@@ -75,6 +75,33 @@ export const RestScreen = () => {
 				dateEnd: "01/05/2021",
 				dateSale: "28/04/2021",
 			},
+			{
+				id: 69,
+				name: "4_18 MAIOR Esc25",
+				company: "Transdev Interior,  S.A.",
+				companyId: 9,
+				dateInit: "28/04/2021",
+				dateEnd: "01/05/2021",
+				dateSale: "28/04/2021",
+			},
+			{
+				id: 69,
+				name: "4_18 MAIOR Esc25",
+				company: "Transdev Interior,  S.A.",
+				companyId: 9,
+				dateInit: "28/04/2021",
+				dateEnd: "01/05/2021",
+				dateSale: "28/04/2021",
+			},
+			{
+				id: 69,
+				name: "4_18 MAIOR Esc25",
+				company: "Transdev Interior,  S.A.",
+				companyId: 9,
+				dateInit: "28/04/2021",
+				dateEnd: "01/05/2021",
+				dateSale: "28/04/2021",
+			},
 		],
 	}
 
@@ -92,7 +119,7 @@ export const RestScreen = () => {
 	}
 
 	const waitingCard = async () => {
-		try {
+		/*try {
 			const response = await fetch("https://localhost:5001/api/ClientData")
 			const data = await response.json()
 			if (data.status != 200) {
@@ -107,10 +134,10 @@ export const RestScreen = () => {
 			}
 		} catch (err) {
 			console.error(err)
-		}
+		}*/
 		//await sleep(3000)
-		//await setClient({ clientData: sampleData })
-		//setState({ ...state, redirect: true })
+		await setClient({ clientData: sampleData })
+		setState({ ...state, redirect: true })
 	}
 
 	if (state.redirect) {

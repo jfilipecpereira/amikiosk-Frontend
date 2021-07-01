@@ -119,7 +119,7 @@ export const RestScreen = () => {
 	}
 
 	const waitingCard = async () => {
-		/*try {
+		try {
 			const response = await fetch("https://localhost:5001/api/ClientData")
 			const data = await response.json()
 			if (data.status != 200) {
@@ -134,10 +134,10 @@ export const RestScreen = () => {
 			}
 		} catch (err) {
 			console.error(err)
-		}*/
+		}
 		//await sleep(3000)
-		await setClient({ clientData: sampleData })
-		setState({ ...state, redirect: true })
+		//await setClient({ clientData: sampleData })
+		//setState({ ...state, redirect: true })
 	}
 
 	if (state.redirect) {

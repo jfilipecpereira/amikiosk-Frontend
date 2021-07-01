@@ -7,7 +7,6 @@ import card from "../../images/card.png"
 //import { useTranslation, withTranslation, Trans } from "react-i18next"
 import { ClientContext } from "../../Contexts/ClientContext"
 import ReactCardFlip from "react-card-flip"
-import { CloseOutlined } from "@material-ui/icons"
 
 export const CardFlipping = (props) => {
 	const [client] = useContext(ClientContext)
@@ -24,7 +23,11 @@ export const CardFlipping = (props) => {
 							<div
 								className='miniCard'
 								key={index}
-								style={client.clientData.contractsLoaded.length < 3 ? { maxHeight: "250px", marginTop: "60px" } : {}}
+								style={
+									client.clientData.contractsLoaded.length < 3
+										? { maxHeight: "250px", marginTop: "60px" }
+										: {}
+								}
 							>
 								<div className='miniCardContent'>
 									<p className='tarifeName'>{contract.name}</p>

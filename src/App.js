@@ -6,6 +6,8 @@ import RestScreen from "./Components/Pages/RestScreen"
 import Checkout from "./Components/Pages/Checkout"
 import Main from "./Components/Pages/Main"
 import Products from "./Components/Pages/Products"
+import Socket from "./Components/Socket"
+import ChooseCompany from "./Components/Pages/ChooseCompany"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
 				<Suspense fallback='loading'>
 					<Router>
 						<div className='App'>
+							<Socket />
 							<Switch>
 								<Route path='/main'>
 									<Main />
@@ -24,6 +27,9 @@ function App() {
 								</Route>
 								<Route path='/products'>
 									<Products />
+								</Route>
+								<Route path='/choose-company'>
+									<ChooseCompany />
 								</Route>
 								<Route path='/'>
 									<RestScreen />

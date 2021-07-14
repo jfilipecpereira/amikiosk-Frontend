@@ -68,3 +68,12 @@
     height: 383.27px;
 }
 
+.chooseComapanyContainer{
+    margin-top: 200px;
+    height: 58vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

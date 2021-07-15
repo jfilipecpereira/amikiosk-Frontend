@@ -8,16 +8,12 @@ import { ClientContext } from "../../Contexts/ClientContext"
 import { CartContext } from "../../Contexts/CartContext"
 import companyLogo from "../../images/transdevLogo.png"
 import amiKIOSK from "../../images/amiKIOSK.png"
-import passCard from "../../images/passCard.png"
+
 
 export const RestScreen = () => {
 	const [, setClient] = useContext(ClientContext)
 	const [, setCart] = useContext(CartContext)
-	const [state, setState] = useState({
-		redirect: false,
-		touchDisplay: "block",
-		passCard: "none",
-	})
+	const [redirect, setRedirect] = useState(false)
 	useEffect(() => {
 		setClient(null)
 		setCart([])
@@ -106,53 +102,19 @@ export const RestScreen = () => {
 	}
 
 	const readCard = async () => {
-		setState({
-			//redirect: true
-			passCard: "block",
-			touchDisplay: "none",
-		})
-		await waitingCard()
-	}
-
-	function sleep(ms) {
-		return new Promise((resolve) => setTimeout(resolve, ms))
-	}
-
-	const waitingCard = async () => {
-		/*try {
-			const response = await fetch("https://localhost:5001/api/ClientData")
-			const data = await response.json()
-			if (data.status != 200) {
-				setState({ cancel: true })
-				setState({
-					passCard: "none",
-					touchDisplay: "block",
-				})
-			} else {
-				setClient({ clientData: data })
-				setState({ ...state, redirect: true })
-			}
-		} catch (err) {
-			console.error(err)
-		}*/
-		await sleep(1000)
-		await setClient({ clientData: sampleData })
-		setState({ ...state, redirect: true })
-	}
-
-	if (state.redirect) {
-		return <Redirect to='/main' />
+		setRedirect(true)
 	}
 
 	return (
 		<>
+			{redirect == true ? <Redirect to='/choose-company' /> : null}
 			<div className='container'>
 				<div className='grid-item header'>
 					<img alt='Logotipo da Empresa' src={companyLogo} width='400' />
 					<img alt='Logotipo amiKIOSK' src={amiKIOSK} width='200' />
 				</div>
 				<div className='grid-item content'>
-					<div id='touch' style={{ display: state.touchDisplay }} onClick={readCard}>
+					<div id='touch' onClick={readCard}>
 						<svg
 							className='blob'
 							width='600'
@@ -170,10 +132,6 @@ export const RestScreen = () => {
 							{/*Touch to Start*/}
 							{t("RES_touchToStart")}
 						</p>
-					</div>
-					<div id='pass' style={{ display: state.passCard }}>
-						<img src={passCard} className='passCardImage' />
-						<p className='passCard'>Apresente cartão</p>
 					</div>
 				</div>
 				<div className='footer'>

@@ -10,6 +10,7 @@ import { Redirect } from "react-router-dom"
 import VATData from "./VATData"
 import MB from "./MB"
 import Final from "./Final"
+import Confirm from "./Confirm"
 
 export const Stepper = () => {
 	const { t } = useTranslation()
@@ -28,7 +29,7 @@ export const Stepper = () => {
 		<>
 			<div className='prevStep' onClick={step > 1 ? prevStep : () => setGoBack(true)}>
 				<FontAwesomeIcon size='8x' icon={faAngleLeft} />
-				<span className='goBackText'>{step > 1 ? <>{t("RES_Previous")}</> : <>Voltar</>}</span>
+				<span className='goBackText'>{step > 1 ? <>{t("RES_Previous")}</> : <>Cancelar</>}</span>
 			</div>
 			<div className='nextStep' onClick={nextStep}>
 				<span className='goBackText'>{t("RES_Next")}</span>
@@ -57,14 +58,14 @@ export const Stepper = () => {
 		case 3:
 			return (
 				<>
-					<Final mainText='Final' />
+					<Confirm mainText='Confirmar Dados' />
 					{arrowActions()}
 				</>
 			)
 		case 4:
 			return (
 				<>
-					Teste4
+					<Final mainText='Final' />
 					{arrowActions()}
 				</>
 			)

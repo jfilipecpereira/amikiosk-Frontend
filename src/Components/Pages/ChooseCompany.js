@@ -165,7 +165,7 @@ export const ChooseCompany = () => {
 				</div>
 				<div className='footer'>
 					<LanguageSelector />
-					<p className='direitos'>©2021 AMI-Tecnologias para Transportes. Todos os direitos reservados.</p>
+					<p className='direitos'>{t("RES_copyright")}</p>
 				</div>
 			</div>
 		</>

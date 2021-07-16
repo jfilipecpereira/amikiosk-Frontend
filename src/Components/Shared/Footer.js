@@ -6,8 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 import "../../Styles/Footer.css"
 import amiKIOSKLogo from "../../images/amiKIOSKLogo.png"
+import { useTranslation } from "react-i18next"
 
 export const Footer = (props) => {
+	const { t } = useTranslation()
+
 	const [state, setState] = useState({
 		redirect: false,
 	})
@@ -26,7 +29,7 @@ export const Footer = (props) => {
 			) : (
 				<div className='goBack'> </div>
 			)}
-			<span className='copyright'>©2021 AMI-Tecnologias para Transportes. Todos os direitos reservados.</span>
+			<span className='copyright'>{t("RES_copyright")}</span>
 			<img src={amiKIOSKLogo} className='amiKIOSKLogo' />
 		</div>
 	)

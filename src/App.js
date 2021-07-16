@@ -9,7 +9,7 @@ import Products from "./Components/Pages/Products"
 import Socket from "./Components/Socket"
 import ChooseCompany from "./Components/Pages/ChooseCompany"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
+import { disableBodyScroll } from "body-scroll-lock"
 
 function App() {
 	useEffect(() => {

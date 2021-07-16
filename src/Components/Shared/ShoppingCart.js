@@ -76,7 +76,7 @@ export default function ShoppingCart() {
 						<div className='Item' key={key}>
 							<div className='ItemInfo'>
 								<p className='NomePasse'>{item.name}</p>
-								<p className='DetalhePasse'>{t("Mes")}: Maio</p>
+								<p className='DetalhePasse'>{t("RES_month")}: Maio</p>
 								<p className='DetalhePasse'>
 									{t("RES_Total")}: {item.price.toFixed(2)}€
 								</p>
@@ -91,7 +91,7 @@ export default function ShoppingCart() {
 						<div className='emptyCart'>
 							<img src={emptyCartImage} className='imgEmptyCart' />
 							<br />
-							<span className='emptyCartText'>Carrinho Vazio</span>
+							<span className='emptyCartText'>{t("RES_emptyCart")}</span>
 						</div>
 					) : (
 						<></>
@@ -102,7 +102,7 @@ export default function ShoppingCart() {
 							<>
 								<NavLink to='/checkout' style={{ width: "45%" }}>
 									<Button variant='contained' className='checkoutButton'>
-										Finalizar
+										{t("RES_finish")}
 									</Button>
 								</NavLink>
 								<Button

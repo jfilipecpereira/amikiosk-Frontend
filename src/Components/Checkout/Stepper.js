@@ -29,7 +29,7 @@ export const Stepper = () => {
 		<>
 			<div className='prevStep' onClick={step > 1 ? prevStep : () => setGoBack(true)}>
 				<FontAwesomeIcon size='8x' icon={faAngleLeft} />
-				<span className='goBackText'>{step > 1 ? <>{t("RES_Previous")}</> : <>Cancelar</>}</span>
+				<span className='goBackText'>{step > 1 ? <>{t("RES_Previous")}</> : <>{t("RES_back")}</>}</span>
 			</div>
 			<div className='nextStep' onClick={nextStep}>
 				<span className='goBackText'>{t("RES_Next")}</span>

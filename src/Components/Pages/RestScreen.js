@@ -133,10 +133,6 @@ export const RestScreen = () => {
 							{t("RES_touchToStart")}
 						</p>
 					</div>
-					<div id='pass' style={{ display: state.passCard }}>
-						<img src={passCard} className='passCardImage' />
-						<p className='passCard'>{t("RES_presentCard")}</p>
-					</div>
 				</div>
 				<div className='footer'>
 					<LanguageSelector />

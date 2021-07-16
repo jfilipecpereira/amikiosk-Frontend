@@ -153,14 +153,14 @@ export const ChooseCompany = () => {
 					<img alt='Logotipo amiKIOSK' src={amiKIOSK} width='200' />
 				</div>
 				<div className='grid-item content'>
-					<div className='welcomeText'>Por favor, escolha a sua empresa:</div>
+					<div className='welcomeText'>{t("RES_ChooseCompany")}:</div>
 					<div className='chooseComapanyContainer' style={{ display: state.company }}>
 						<img src={companyLogo} width='500' style={{ margin: "50px" }} onClick={readCard} />
 						<img src={companyLogo} width='500' style={{ margin: "50px" }} onClick={readCard} />
 					</div>
 					<div id='pass' style={{ display: state.passCard }}>
 						<img src={passCard} className='passCardImage' />
-						<p className='passCard'>Apresente cartão</p>
+						<p className='passCard'>{t("RES_presentCard")}</p>
 					</div>
 				</div>
 				<div className='footer'>

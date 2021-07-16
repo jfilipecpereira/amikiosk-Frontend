@@ -79,7 +79,7 @@ export const Products = () => {
 				</div>
 				<Snackbar open={openSuccessMessage} autoHideDuration={3000} onClose={handleClose} className='snackBar'>
 					<Alert onClose={handleClose} severity='success' className='snackBar'>
-						Tarifa Adicionada ao Carrinho
+						{t("RES_addedToCart")}
 					</Alert>
 				</Snackbar>
 				<Snackbar open={openErrorMessage} autoHideDuration={3000} onClose={handleClose} className='snackBar'>

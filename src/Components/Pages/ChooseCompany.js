@@ -27,15 +27,15 @@ export const ChooseCompany = () => {
 				<div className='grid-item content'>
 					<div className='welcomeText'>Por favor, escolha a sua empresa:</div>
 					<div className='chooseComapanyContainer'>
-						<img src={companyLogo} width='500' style={{margin:'50px'}}/>
-						<img src={companyLogo} width='500' style={{margin:'50px'}}/>
-						<img src={companyLogo} width='500' style={{margin:'50px'}}/>
-                        <img src={companyLogo} width='500' style={{margin:'50px'}}/>
+						<img src={companyLogo} width='500' style={{ margin: "50px" }} />
+						<img src={companyLogo} width='500' style={{ margin: "50px" }} />
+						<img src={companyLogo} width='500' style={{ margin: "50px" }} />
+						<img src={companyLogo} width='500' style={{ margin: "50px" }} />
 					</div>
 				</div>
 				<div className='footer'>
 					<LanguageSelector />
-					<p className='direitos'>©2021 AMI-Tecnologias para Transportes. Todos os direitos reservados.</p>
+					<p className='direitos'>{t("RES_copyright")}</p>
 				</div>
 			</div>
 		</>

@@ -10,6 +10,7 @@ import { Redirect } from "react-router-dom"
 import VATData from "./VATData"
 import MB from "./MB"
 import Final from "./Final"
+import Confirm from "./Confirm"
 
 export const Stepper = () => {
 	const { t } = useTranslation()
@@ -57,14 +58,14 @@ export const Stepper = () => {
 		case 3:
 			return (
 				<>
-					<Final mainText='Final' />
+					<Confirm mainText='Confirmar Dados' />
 					{arrowActions()}
 				</>
 			)
 		case 4:
 			return (
 				<>
-					Teste4
+					<Final mainText='Final' />
 					{arrowActions()}
 				</>
 			)

@@ -75,7 +75,7 @@ export const Products = () => {
 					</div>
 				</div>
 				<div className='grid-item footer'>
-					<Footer Text='Voltar' Page='/main' />
+					<Footer Text={t("RES_Previous")} Page='/main' />
 				</div>
 				<Snackbar open={openSuccessMessage} autoHideDuration={3000} onClose={handleClose} className='snackBar'>
 					<Alert onClose={handleClose} severity='success' className='snackBar'>

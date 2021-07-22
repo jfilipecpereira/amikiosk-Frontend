@@ -69,6 +69,12 @@ input:not(:focus):valid ~ span {
 }
 
 
+.alertInvalid{
+    text-align: left !important;
+    color:red;
+}
+
+
 /*keyboard Theme adjust*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NÃO ATUALIZAR O PACOTE SIMPLE-REACT-KEYBOARD SEM AUTORIZAÇÃO DO fP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*

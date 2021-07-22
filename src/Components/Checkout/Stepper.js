@@ -16,6 +16,7 @@ export const Stepper = () => {
 	const { t } = useTranslation()
 	const [step, setStep] = useState(1)
 	const [goBack, setGoBack] = useState(false)
+	const [canNext, setCanNext] = useState(true)
 
 	const nextStep = () => {
 		setStep(step + 1)
@@ -31,7 +32,7 @@ export const Stepper = () => {
 				<FontAwesomeIcon size='8x' icon={faAngleLeft} />
 				<span className='goBackText'>{step > 1 ? <>{t("RES_Previous")}</> : <>{t("RES_back")}</>}</span>
 			</div>
-			<div className='nextStep' onClick={nextStep}>
+			<div className='nextStep' onClick={canNext ? nextStep : undefined}>
 				<span className='goBackText'>{t("RES_Next")}</span>
 				<FontAwesomeIcon size='8x' icon={faAngleRight} />
 			</div>
@@ -44,7 +45,7 @@ export const Stepper = () => {
 		case 1:
 			return (
 				<>
-					<VATData mainText={t("RES_Billing")} />
+					<VATData mainText={t("RES_Billing")} canNext={setCanNext} />
 					{arrowActions()}
 				</>
 			)

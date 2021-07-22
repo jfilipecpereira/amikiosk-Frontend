@@ -12,6 +12,15 @@ export const VATData = (props) => {
 	const [client, setClient] = useContext(ClientContext)
 	const [clientData, setClientData] = useState(client)
 	const [activeInput, setActiveInput] = useState()
+	const [display, setDisplay] = useState({
+		nif: false,
+		name: false,
+		address: false,
+		postalC: false,
+		invalidPostalC: false,
+		invalidNIF: false,
+	})
+	const [layoutName, setlayoutName] = useState("main")
 	const keyboard = useRef()
 
 	useEffect(() => {
@@ -20,10 +29,69 @@ export const VATData = (props) => {
 	}, [])
 
 	useEffect(() => {
+		Object.values(display).includes(true) ? props.canNext(false) : props.canNext(true)
+	})
+
+	useEffect(() => {
+		//sync state and context when state is updated
 		setClient(clientData)
+		if (clientData.clientData.postalC.length != 8 || !clientData.clientData.postalC.includes("-")) {
+			setDisplay((prevState) => {
+				return {
+					...prevState,
+					invalidPostalC: true,
+				}
+			})
+		} else {
+			setDisplay((prevState) => {
+				return {
+					...prevState,
+					invalidPostalC: false,
+				}
+			})
+		}
+		if (clientData.clientData.nif.length != 9) {
+			setDisplay((prevState) => {
+				return {
+					...prevState,
+					invalidNIF: true,
+				}
+			})
+		} else {
+			setDisplay((prevState) => {
+				return {
+					...prevState,
+					invalidNIF: false,
+				}
+			})
+		}
 	}, [clientData])
 
 	const onChange = (input) => {
+		//Validation for FullName field length
+		if (activeInput == "name") {
+			if (!validateLength(input, 50)) return
+		}
+		//Validation for NIF field length
+		if (activeInput == "address") {
+			if (!validateLength(input, 50)) return
+		}
+		//Validation for NIF field length
+		if (activeInput == "nif") {
+			if (!validateLength(input, 10)) return
+		}
+
+		//Validation for ZIP Code field length
+		if (activeInput == "postalC") {
+			if (!validateLength(input, 9)) return
+			//Insert the - in ZIP Code
+			if (input.length == 5 && clientData.clientData.postalC.length == 4) {
+				input = input.substring(0, 4) + "-" + input.charAt(4)
+				keyboard.current.setInput(input)
+			}
+		}
+
+		//If all conditions are satisfied the client data are updated
 		setClientData((prevState) => {
 			return {
 				...prevState,
@@ -35,9 +103,39 @@ export const VATData = (props) => {
 		})
 	}
 
+	//validade the length of the input
+	const validateLength = (inputValue, length) => {
+		if (inputValue.length >= length) {
+			keyboard.current.setInput(inputValue.substring(0, length - 1))
+			return false
+		}
+		if (inputValue.length == 0) {
+			setDisplay((prevState) => {
+				return {
+					...prevState,
+					[activeInput]: true,
+				}
+			})
+		} else {
+			setDisplay((prevState) => {
+				return {
+					...prevState,
+					[activeInput]: false,
+				}
+			})
+		}
+		return true
+	}
+
 	const onChangeSource = (inputName) => {
 		setActiveInput(inputName)
 		keyboard.current.setInput(clientData.clientData[inputName])
+		console.log(inputName)
+		if (inputName == "nif" || inputName == "postalC") {
+			setlayoutName("numbersOnly")
+		} else {
+			setlayoutName("main")
+		}
 	}
 
 	return (
@@ -55,7 +153,10 @@ export const VATData = (props) => {
 						<span className='placeholder'>{t("RES_NumberTaxpayer")}</span>
 					</label>
 				</div>
-				<br />
+				<span className='alertInvalid' name='nif'>
+					{display.nif ? "O campo NIF não pode estar vazio (Se não quiser NIF insira 999999999)" : null}
+					{display.invalidNIF ? "Insira um NIF Válido" : null}
+				</span>
 				<br />
 				<br />
 				<br />
@@ -70,7 +171,9 @@ export const VATData = (props) => {
 						<span className='placeholder'>{t("RES_FullName")}</span>
 					</label>
 				</div>
-				<br />
+				<span className='alertInvalid' name='name'>
+					{display.name ? "O campo nome não pode estar vazio" : null}
+				</span>
 				<br />
 				<br />
 				<br />
@@ -85,7 +188,9 @@ export const VATData = (props) => {
 						<span className='placeholder'>{t("RES_Address")}</span>
 					</label>
 				</div>
-				<br />
+				<span className='alertInvalid' name='address'>
+					{display.address ? "O campo Morada não pode estar vazio" : null}
+				</span>
 				<br />
 				<br />
 				<br />
@@ -100,7 +205,10 @@ export const VATData = (props) => {
 						<span className='placeholder'>{t("RES_PostalCode")}</span>
 					</label>
 				</div>
-				<br />
+				<span className='alertInvalid' name='postalC'>
+					{display.postalC ? "O campo Código Postal não pode estar vazio" : null}
+					{display.invalidPostalC ? "Insira um Código Postal Válido" : null}
+				</span>
 				<br />
 				<br />
 				<br />
@@ -108,15 +216,16 @@ export const VATData = (props) => {
 					keyboardRef={(r) => (keyboard.current = r)}
 					onChange={onChange}
 					disableCaretPositioning='true'
-					layoutName='ip'
+					layoutName={layoutName}
 					layout={{
-						ip: [
+						main: [
 							"1 2 3 4 5 6 7 8 9 0",
 							"Q W E R T Y U I O P {backspace}",
 							"A S D F G H J K L",
 							"Z X C V B N M , . -",
 							"{space}",
 						],
+						numbersOnly: ["1 2 3", "4 5 6", "7 8 9", "0 {backspace}"],
 					}}
 					display={{
 						"{space}": "Espaço",
@@ -129,6 +238,7 @@ export const VATData = (props) => {
 }
 VATData.propTypes = {
 	mainText: PropTypes.string.isRequired,
+	canNext: PropTypes.fun,
 }
 
 export default VATData

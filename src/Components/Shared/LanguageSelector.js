@@ -41,7 +41,7 @@ const idiomas = [
 		sigla: "ptPT",
 		image: portugues,
 	},
-	{
+	/*{
 		name: "Inglês",
 		sigla: "enGB",
 		image: ingles,
@@ -50,7 +50,7 @@ const idiomas = [
 		name: "Espanhol",
 		sigla: "esES",
 		image: espanhol,
-	},
+	},*/
 	{
 		name: "Francês",
 		sigla: "frFR",

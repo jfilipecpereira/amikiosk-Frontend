@@ -5,7 +5,7 @@ import { HubConnectionBuilder } from "@microsoft/signalr"
 import { ClientContext } from "../Contexts/ClientContext"
 
 export const Socket = () => {
-	const [connection, setConnection] = useState(null)
+	/*const [connection, setConnection] = useState(null)
 	const [chat, setChat] = useState([])
 	const [lastState, setLastState] = useState(0)
 	const latestChat = useRef(null)
@@ -48,8 +48,10 @@ export const Socket = () => {
 
 	if (chat[chat.length - 1]?.message == "0" && lastState === 1) {
 		return <Redirect to='/' />
+		//return <></>
 	} else if (chat[chat.length - 1]?.message === "1" && lastState === 0) {
 		setLastState(1)
+		console.log("setted last state")
 		return <></>
 	} else {
 		console.log("lastState")
@@ -57,7 +59,8 @@ export const Socket = () => {
 		console.log("teste")
 		console.log(chat[chat.length - 1]?.message)
 		return <></>
-	}
+	}*/
+	return <></>
 }
 
 export default Socket

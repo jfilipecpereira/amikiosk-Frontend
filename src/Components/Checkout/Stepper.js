@@ -52,14 +52,14 @@ export const Stepper = () => {
 		case 2:
 			return (
 				<>
-					<MB mainText={t("RES_ATM")} />
+					<Confirm mainText='Confirmar Dados' />
 					{arrowActions()}
 				</>
 			)
 		case 3:
 			return (
 				<>
-					<Confirm mainText='Confirmar Dados' />
+					<MB mainText={t("RES_ATM")} />
 					{arrowActions()}
 				</>
 			)

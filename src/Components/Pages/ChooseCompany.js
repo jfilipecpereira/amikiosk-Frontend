@@ -31,7 +31,7 @@ export const ChooseCompany = () => {
 		number: 23113,
 		cardNumber: 1955788548,
 		address: "Urb Quinta das Varzeas, Lt 3, 2ºDrt.",
-		city: "",
+		city: "Amarante",
 		postalC: "6200",
 		status: "200",
 		nif: "234881232",
@@ -121,7 +121,7 @@ export const ChooseCompany = () => {
 
 	const waitingCard = async () => {
 		/*try {
-			const response = await fetch("https://localhost:5001/api/ClientData")
+			const response = await fetch("http://localhost:5000/api/ClientData")
 			const data = await response.json()
 			if (data.status != 200) {
 				setState({ cancel: true })
@@ -132,6 +132,7 @@ export const ChooseCompany = () => {
 			} else {
 				setClient({ clientData: data })
 				setState({ ...state, redirect: true })
+				console.log("chegou aqui");
 			}
 		} catch (err) {
 			console.error(err)

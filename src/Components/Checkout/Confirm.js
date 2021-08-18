@@ -15,6 +15,7 @@ export const Confirm = (props) => {
 				<p>Morada: {client.clientData.address}</p>
 				<p>NIF: {client.clientData.nif}</p>
 				<p>Código Postal: {client.clientData.postalC}</p>
+				<p>Cidade: {client.clientData.city}</p>
 			</div>
 		</>
 	)

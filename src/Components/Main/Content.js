@@ -35,12 +35,12 @@ export const Content = () => {
 			<div className='buttonContainer' style={{ marginTop: "80px" }}>
 				<div className='ActionButton' onClick={handleFlip}>
 					<FontAwesomeIcon icon={faEye} size='5x' className='ActionButton icon' />
-					<span className='buttonText'>{isFlipped ? t("RES_dllsprajna_00046") : t("RES_Contracts")}</span>
+					<span className='buttonText'>{isFlipped ? t("RES_dllsprajna_00046") : t("RES_seeInfo")}</span>
 				</div>
 
 				<div className='ActionButton' style={{ marginTop: "80px" }} onClick={() => setredirectProducts(true)}>
 					<FontAwesomeIcon icon={faPlus} size='5x' className='ActionButton icon' />
-					<span className='buttonText'>{t("RES_dllsprajna_00046")}</span>
+					<span className='buttonText'>{t("RES_Charge")}</span>
 				</div>
 			</div>
 		</>

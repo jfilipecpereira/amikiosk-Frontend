@@ -20,6 +20,7 @@ export const VATData = (props) => {
 		invalidPostalC: false,
 		invalidNIF: false,
 	})
+	const [disabled, setDisabled] = useState(false)
 	const [layoutName, setlayoutName] = useState("main")
 	const keyboard = useRef()
 
@@ -35,7 +36,10 @@ export const VATData = (props) => {
 	useEffect(() => {
 		//sync state and context when state is updated
 		setClient(clientData)
-		if (clientData.clientData.postalC.length != 8 || !clientData.clientData.postalC.includes("-")) {
+		if (
+			(clientData.clientData.postalC.length != 8 || !clientData.clientData.postalC.includes("-")) &&
+			disabled != true
+		) {
 			setDisplay((prevState) => {
 				return {
 					...prevState,
@@ -50,7 +54,7 @@ export const VATData = (props) => {
 				}
 			})
 		}
-		if (clientData.clientData.nif.length != 9) {
+		if (clientData.clientData.nif.length != 9 || clientData.clientData.nif == 999999999) {
 			setDisplay((prevState) => {
 				return {
 					...prevState,
@@ -65,20 +69,59 @@ export const VATData = (props) => {
 				}
 			})
 		}
+
+		//NIF 999 999 990
+		if (clientData.clientData.nif == 999999990) {
+			console.log("teste")
+			setDisabled(true)
+		} else {
+			console.log("teste")
+			setDisabled(false)
+		}
 	}, [clientData])
+
+	useEffect(() => {
+		if (disabled) {
+			setClientData((prevState) => {
+				return {
+					...prevState,
+					clientData: {
+						...prevState.clientData,
+						name: "Cliente Final",
+						address: "",
+						postalC: "",
+						city: "",
+					},
+				}
+			})
+		}
+	}, [disabled])
 
 	const onChange = (input) => {
 		//Validation for FullName field length
 		if (activeInput == "name") {
-			if (!validateLength(input, 50)) return
+			if (!validateLength(input, 40)) return
+		}
+		//Validation for FullName if state is disabled
+		if (activeInput == "name") {
+			if (disabled) return
 		}
 		//Validation for NIF field length
 		if (activeInput == "address") {
 			if (!validateLength(input, 50)) return
 		}
+		//Validation for City field length
+		if (activeInput == "city") {
+			if (!validateLength(input, 40)) return
+		}
 		//Validation for NIF field length
 		if (activeInput == "nif") {
 			if (!validateLength(input, 10)) return
+		}
+
+		//Validade 999 999 999
+		if (activeInput == "nif") {
+			//if (input == "999999999") return
 		}
 
 		//Validation for ZIP Code field length
@@ -154,7 +197,7 @@ export const VATData = (props) => {
 					</label>
 				</div>
 				<span className='alertInvalid' name='nif'>
-					{display.nif ? "O campo NIF não pode estar vazio (Se não quiser NIF insira 999999999)" : null}
+					{display.nif ? "O campo NIF não pode estar vazio (Se não quiser NIF insira 999999990)" : null}
 					{display.invalidNIF ? "Insira um NIF Válido" : null}
 				</span>
 				<br />
@@ -180,6 +223,7 @@ export const VATData = (props) => {
 				<div className='centered' onClick={() => onChangeSource("address")}>
 					<label>
 						<input
+							disabled={disabled}
 							type='text'
 							className='textfield'
 							onChange={() => {}}
@@ -197,6 +241,7 @@ export const VATData = (props) => {
 				<div className='centered' onClick={() => onChangeSource("postalC")}>
 					<label>
 						<input
+							disabled={disabled}
 							type='text'
 							className='textfield'
 							onChange={() => {}}
@@ -209,6 +254,21 @@ export const VATData = (props) => {
 					{display.postalC ? "O campo Código Postal não pode estar vazio" : null}
 					{display.invalidPostalC ? "Insira um Código Postal Válido" : null}
 				</span>
+				<br />
+				<br />
+				<br />
+				<div className='centered' onClick={() => onChangeSource("city")}>
+					<label>
+						<input
+							disabled={disabled}
+							type='text'
+							className='textfield'
+							onChange={() => {}}
+							value={clientData.clientData.city}
+						/>
+						<span className='placeholder'>{t("RES_City")}</span>
+					</label>
+				</div>
 				<br />
 				<br />
 				<br />
